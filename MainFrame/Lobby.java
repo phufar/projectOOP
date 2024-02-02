@@ -92,7 +92,6 @@ public class Lobby extends JFrame {
 
         // Add the layered pane to the frame
         frameLobby.getContentPane().add(layeredPane);
-        
         frameLobby.setVisible(true);
     }
 
