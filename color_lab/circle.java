@@ -1,12 +1,12 @@
 package color_lab;
 import java.awt.Color;
 
-public class circle {
+public class Circle {
     private float hue, saturation, value;
     private boolean target = false;
     private Color c;
     
-    public circle(float hue, float saturation, float value) {
+    public Circle(float hue, float saturation, float value) {
         this.hue = hue;
         this.saturation = saturation;
         this.value = value;
