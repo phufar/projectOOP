@@ -1,10 +1,8 @@
-// import java.awt.*;
+import MainFrame.Lobby;
 
-import MainFrame.Lobby; 
-public class Main extends Lobby {
+public class Main {
 
     public static void main(String[] args) {
         new Lobby();
-
     }
 }
