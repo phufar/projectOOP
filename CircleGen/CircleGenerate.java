@@ -1,4 +1,4 @@
-package MainFrame;
+package CircleGen;
 
 import java.util.ArrayList;
 
