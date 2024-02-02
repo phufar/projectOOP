@@ -1,4 +1,5 @@
-import MainFrame.Lobby;
+import MainFrame.*;
+
 
 public class Main {
 

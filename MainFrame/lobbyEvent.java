@@ -14,10 +14,15 @@ public class lobbyEvent implements ActionListener {
 
         if (srcButton.getText().equals("START")) {
             START();
-        } else if (srcButton.getText().equals("OPTION")) {
+        } 
+        else if (srcButton.getText().equals("OPTION")) {
             OPTION();
-        } else if (srcButton.getText().equals("QUIT")) {
+        } 
+        else if (srcButton.getText().equals("QUIT")) {
             QUIT();
+        }
+        else if(srcButton.getText().equals("BACK")){
+            BACK();
         }
     }
 
@@ -26,11 +31,21 @@ public class lobbyEvent implements ActionListener {
     }
 
     private void OPTION() {
-        JOptionPane.showMessageDialog(null, "OPTION!!!");
+        // JOptionPane.showMessageDialog(null, "OPTION!!!");
+        Lobby.frameLobby.setVisible(false);
+        Lobby.frameLobby.dispose();
+        new Option();
     }
 
     private void QUIT() {
-        JOptionPane.showMessageDialog(null, "QUIT!!!");
+        // JOptionPane.showMessageDialog(null, "QUIT!!!");
+        System.exit(0);
+    }
+    private void BACK(){
+        // JOptionPane.showMessageDialog(null, "BACK!!!");
+        new Lobby();
+        Option.frameOption.setVisible(false);
+        Option.frameOption.dispose();
     }
 
 }

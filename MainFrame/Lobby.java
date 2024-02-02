@@ -12,16 +12,20 @@ import javax.swing.JPanel;
 
 public class Lobby extends JFrame {
 
-    JFrame frame = new JFrame();
+    public static JFrame frameLobby;
+    
+    static lobbyEvent btnEvent = new lobbyEvent();
+
 
     public Lobby() {
         // Frame
-        this.setTitle("BLIND");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1280, 720);
-        this.setLocationRelativeTo(null);
-        this.getContentPane().setLayout(new BorderLayout());
-        this.setVisible(true);
+        frameLobby = new JFrame();
+        frameLobby.setTitle("BLIND");
+        frameLobby.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frameLobby.setSize(1280, 720);
+        frameLobby.setLocationRelativeTo(null);
+        frameLobby.getContentPane().setLayout(new BorderLayout());
+        frameLobby.setVisible(true);
 
         // Create a JLayeredPane
         JLayeredPane layeredPane = new JLayeredPane();
@@ -52,7 +56,6 @@ public class Lobby extends JFrame {
         Quit.setForeground(Color.WHITE);
 
         //BUTTON EVENT
-        lobbyEvent btnEvent = new lobbyEvent();
         Start.addActionListener(btnEvent);
         Option.addActionListener(btnEvent);
         Quit.addActionListener(btnEvent);
@@ -89,7 +92,7 @@ public class Lobby extends JFrame {
         layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
 
         // Add the layered pane to the frame
-        this.getContentPane().add(layeredPane);
+        frameLobby.getContentPane().add(layeredPane);
 
     }
 
