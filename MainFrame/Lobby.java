@@ -1,6 +1,6 @@
 package MainFrame;
 
-// import java.awt.BorderLayout;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -24,8 +24,7 @@ public class Lobby extends JFrame {
         frameLobby.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameLobby.setSize(1280, 720);
         frameLobby.setLocationRelativeTo(null);
-        // frameLobby.getContentPane().setLayout(new BorderLayout());
-        frameLobby.setVisible(true);
+        frameLobby.getContentPane().setLayout(new BorderLayout());
 
         // Create a JLayeredPane
         JLayeredPane layeredPane = new JLayeredPane();
@@ -93,7 +92,8 @@ public class Lobby extends JFrame {
 
         // Add the layered pane to the frame
         frameLobby.getContentPane().add(layeredPane);
-
+        
+        frameLobby.setVisible(true);
     }
 
 }

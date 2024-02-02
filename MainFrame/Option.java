@@ -23,7 +23,6 @@ public class Option extends JFrame {
         frameOption.setLocationRelativeTo(Lobby.frameLobby);
         frameOption.setLayout(null);
         frameOption.getContentPane().setLayout(new BorderLayout());
-        frameOption.setVisible(true);
 
         // Create a JLayeredPane
         JLayeredPane layeredPane = new JLayeredPane();
@@ -78,6 +77,6 @@ public class Option extends JFrame {
 
         // Add the layered pane to the frame
         frameOption.getContentPane().add(layeredPane);
-
+        frameOption.setVisible(true);
     }
 }
