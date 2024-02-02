@@ -5,24 +5,22 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import color_lab.circle;
+import color_lab.Circle;
 
 public class CircleGenerate extends JFrame{
-    private ArrayList<JButton> circleList = new ArrayList<>();
+    private ArrayList<JButton> CircleList = new ArrayList<>();
 
 
     public CircleGenerate(float hue, float saturation, float value, int n) {
         for(int i = 0; i < n; i++) {
             JButton b = new JButton();
-            b.setBackground(Circle);
-            circleList.add(b);
+            Circle c = new Circle(hue, saturation, value);
+            c.setRGB();
+            b.setBackground(c.getC());
+            CircleList.add(b);
             this.add(b);
         }
+
         this.setVisible(true);
     }
-
-    public void targetColor() {
-        System.out.println("eee");
-    }
-
 }
