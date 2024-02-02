@@ -17,7 +17,7 @@ public class CircleGenerate extends JFrame{
     }
 
     public void targetColor() {
-
+        System.out.println("eee");
     }
 
 }
