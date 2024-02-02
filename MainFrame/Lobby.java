@@ -1,6 +1,6 @@
 package MainFrame;
 
-import java.awt.BorderLayout;
+// import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 public class Lobby extends JFrame {
 
     public static JFrame frameLobby;
-    
+
     static lobbyEvent btnEvent = new lobbyEvent();
 
 
@@ -24,7 +24,7 @@ public class Lobby extends JFrame {
         frameLobby.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameLobby.setSize(1280, 720);
         frameLobby.setLocationRelativeTo(null);
-        frameLobby.getContentPane().setLayout(new BorderLayout());
+        // frameLobby.getContentPane().setLayout(new BorderLayout());
         frameLobby.setVisible(true);
 
         // Create a JLayeredPane
