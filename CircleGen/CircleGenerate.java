@@ -61,9 +61,7 @@ public class CircleGenerate extends JFrame{
                         c.setGreen(this.randomGreen);
                 }
             }
-            Dimension size = getPreferredSize();
-            size.width = size.height = Math.max(size.width, size.height);
-            b.setPreferredSize(size);
+            b.setPreferredSize(new Dimension(40,40));
             b.setBorder(new RoundedBorder(10));
             c.setRGB();
             b.setBackground(c.getColor());
