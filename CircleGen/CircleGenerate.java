@@ -33,35 +33,20 @@ public class CircleGenerate extends JFrame{
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
         this.randomrange = 5;
-        int hasTarget =0;
+        int hasTarget = 0;
         int makeChange = (int)Math.floor(Math.random()*3);
-        System.out.println(randomrange);
-        System.out.println(String.format("[%s, %s, %s]", randomRed,randomGreen,randomBlue));
-        System.out.println(makeChange);
-        // makeRandomRange(makeChange);
         
         for(int i = 0; i < n; i++) {
             Circle c = new Circle(randomRed, randomGreen, randomBlue);
             FakeButton b = new FakeButton();
             if(hasTarget==0){
-                c.setTarget((Math.random()>0.5));
+                b.setTarget((Math.random()>0.5));
                 if(i==n-1){
-                    c.setTarget(true);
+                    b.setTarget(true);
                 }
             }
-            if(c.isTarget()){
+            if(b.isTarget()){
                 hasTarget++;
-                // switch (makeChange) {
-                //     case 0://hence Red max is 360 Green and Blue is 100
-                //         c.setRedsetGreen(this.randomRed+(int)(3.6*this.randomrange), this.randomGreen+randomrange);
-                //         c.setBlue(this.randomBlue);
-                //     case 1:
-                //     c.setRedsetGreen(this.randomRed+(int)(3.6*this.randomrange), this.randomGreen+randomrange);
-                //     c.setBlue(this.randomBlue);
-                //     case 2:
-                //         c.setRedsetBlue(this.randomRed+(int)(3.6*randomrange), this.randomBlue+randomrange);
-                //         c.setGreen(this.randomGreen);
-                // }
                 if(makeChange==0){
                     c.setRedsetGreen(this.randomRed+this.randomrange, this.randomGreen+randomrange);
                         c.setBlue(this.randomBlue);
@@ -73,17 +58,14 @@ public class CircleGenerate extends JFrame{
                         c.setGreen(this.randomGreen);
                 }
             }
-            System.out.println(c.getRed()+" "+c.getGreen()+" "+c.getBlue());
 
             c.setRGB();
             b.setBackground(c.getColor());
-            // System.out.println(c.isTarget());
-            // System.out.println(c.getColor());
             CircleList.add(b);
             this.add(b);
         }
 
-        this.setVisible(true);
+        randomPlacement(CircleList);
     }
     
     static int getNCircle(int level){
@@ -110,7 +92,7 @@ public class CircleGenerate extends JFrame{
     //     }
     // }
 
-    static void randomPlacement(ArrayList<JButton> CL){
+    static void randomPlacement(ArrayList<FakeButton> CL){
         Collections.shuffle(CL);
     }
 }
