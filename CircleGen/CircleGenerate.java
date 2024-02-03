@@ -4,10 +4,8 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.border.Border;
 
 import color_lab.Circle;
 
@@ -66,6 +64,7 @@ public class CircleGenerate extends JFrame{
             b.setBorder(null);
             b.setBorderPainted(false);
             c.setRGB();
+            b.setBorderPainted(false);
             b.setBackground(c.getColor());
             CircleList.add(b);
             this.add(b);

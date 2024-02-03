@@ -1,9 +1,7 @@
 package GameStage;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -15,7 +13,6 @@ import javax.swing.JPanel;
 
 import CircleGen.CircleGenerate;
 import CircleGen.FakeButton;
-import color_lab.Circle;
 
 public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
@@ -54,10 +51,10 @@ public class StageOne extends StageController {
         //Circle
         CircleGenerate C1 = new CircleGenerate((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1);
         System.out.println(C1.CircleList.size());
-        JPanel gridPanel = new JPanel(new GridLayout(1, 3));
-        gridPanel.setBounds(0, 121, 500, 500);
+        JPanel gridPanel = new JPanel(new GridLayout(1, 4));
+        gridPanel.setBounds(0, 120, 1280, 660);
         for (FakeButton b : C1.CircleList) {
-            b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+            // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
             b.addActionListener(stageEvent);
             gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
             // layeredPane.add(b);
@@ -99,7 +96,7 @@ public class StageOne extends StageController {
         layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
 
         // Add the layered pane to the frame
-        layeredPane.add(gridPanel, JLayeredPane.DEFAULT_LAYER);
+        layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
 
