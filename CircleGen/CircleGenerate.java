@@ -16,13 +16,31 @@ public class CircleGenerate extends JFrame{
     static float randomSaturation;
     static float randomValue;
 
-
-
     public CircleGenerate(float randomHue,float randomSaturation,float randomValue,int n) {
+        int hasTarget =0;
+        int makeChange = (int)Math.floor(Math.random()*3);
         for(int i = 0; i < n; i++) {
             JButton b = new JButton();
             Circle c = new Circle(randomHue, randomSaturation, randomValue);
-            c.setTarget((Math.random()>0.5));
+            if(hasTarget==0){
+                c.setTarget((Math.random()>0.5));
+                if(i==n-1){
+                    c.setTarget(true);
+                }
+            }
+            if(c.isTarget()){
+                switch (makeChange) {
+                    case 0:
+                        c.setHuesetSaturation(randomHue+randomrange, randomSaturation+randomrange);
+                        c.setValue(randomValue);
+                    case 1:
+                        c.setSaturationsetValue(randomSaturation+randomrange, randomValue+randomrange);
+                        c.setHue(randomValue);
+                    case 2:
+                        c.setHuesetValue(randomHue+randomrange, randomValue+randomrange);
+                        c.setSaturation(randomSaturation);
+                }
+            }
             c.setRGB();
             b.setBackground(c.getC());
             CircleList.add(b);
