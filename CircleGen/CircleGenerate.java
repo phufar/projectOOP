@@ -14,7 +14,7 @@ import color_lab.Circle;
 // }
 
 public class CircleGenerate extends JFrame{
-    private ArrayList<JButton> CircleList = new ArrayList<>();
+    ArrayList<FakeButton> CircleList = new ArrayList<>();
     
     static int level;
     static int randomrange;
@@ -32,17 +32,17 @@ public class CircleGenerate extends JFrame{
         this.randomRed = randomRed;
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
-        this.randomrange = CircleGenerate.makeRandomRange(n);
+        this.randomrange = 5;
         int hasTarget =0;
         int makeChange = (int)Math.floor(Math.random()*3);
         System.out.println(randomrange);
         System.out.println(String.format("[%s, %s, %s]", randomRed,randomGreen,randomBlue));
         System.out.println(makeChange);
-        makeRandomRange(makeChange);
+        // makeRandomRange(makeChange);
         
         for(int i = 0; i < n; i++) {
             Circle c = new Circle(randomRed, randomGreen, randomBlue);
-            JButton b = new JButton();
+            FakeButton b = new FakeButton();
             if(hasTarget==0){
                 c.setTarget((Math.random()>0.5));
                 if(i==n-1){
@@ -76,13 +76,11 @@ public class CircleGenerate extends JFrame{
             System.out.println(c.getRed()+" "+c.getGreen()+" "+c.getBlue());
 
             c.setRGB();
-            b.setBackground(c.getC());
-            System.out.println(c.isTarget());
-            System.out.println(c.getC());
-            b.setVisible(true);
+            b.setBackground(c.getColor());
+            // System.out.println(c.isTarget());
+            // System.out.println(c.getColor());
             CircleList.add(b);
             this.add(b);
-
         }
 
         this.setVisible(true);
@@ -100,17 +98,17 @@ public class CircleGenerate extends JFrame{
         }
     }
     
-    static int makeRandomRange(int level){
-        if(level>0 && level <=5){
-            return 10;
-        }else if(level>5 && level<=15){
-            return 5;
-        }else if(level>15 && level<=25){
-            return 2;
-        }else{
-            return 1;
-        }
-    }
+    // static int makeRandomRange(int level){
+    //     if(level>0 && level <=5){
+    //         return 10;
+    //     }else if(level>5 && level<=15){
+    //         return 5;
+    //     }else if(level>15 && level<=25){
+    //         return 2;
+    //     }else{
+    //         return 1;
+    //     }
+    // }
 
     static void randomPlacement(ArrayList<JButton> CL){
         Collections.shuffle(CL);

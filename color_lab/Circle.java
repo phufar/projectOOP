@@ -5,7 +5,7 @@ import java.awt.Color;
 public class Circle {
     private int red, green, blue;
     private boolean target = false;
-    private Color c;
+    private Color color;
 
     public Circle(int red,int green,int blue) {
         this.red = red;
@@ -32,7 +32,7 @@ public class Circle {
     // }
 
     public void setRGB() {
-        c = new Color(red,green,blue);
+        color = new Color(red,green,blue);
     }
 
     // public String hsvtoRGB(float H, float S, float V) {
@@ -147,8 +147,8 @@ public class Circle {
         this.target = target;
     }
 
-    public void setC(Color c) {
-        this.c = c;
+    public void setColor(Color c) {
+        this.color = c;
     }
 
     public float getRed() {
@@ -167,8 +167,8 @@ public class Circle {
         return target;
     }
 
-    public Color getC() {
-        return c;
+    public Color getColor() {
+        return color;
     }
 
 
