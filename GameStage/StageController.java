@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 // import javax.swing.JOptionPane;
-// import CircleGen.*;
+import CircleGen.*;
 
 import MainFrame.Lobby;
 
@@ -31,6 +31,8 @@ public class StageController implements ActionListener {
         }
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
+        }else if(((FakeButton)srcButton).isTarget()){
+            COUNT();
         }
     }
 
