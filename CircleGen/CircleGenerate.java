@@ -1,9 +1,9 @@
 package CircleGen;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import color_lab.Circle;
@@ -14,61 +14,66 @@ import color_lab.Circle;
 // }
 
 public class CircleGenerate extends JFrame{
-    private ArrayList<JButton> CircleList = new ArrayList<>();
+    public ArrayList<FakeButton> CircleList = new ArrayList<>();
     
     static int level;
-    static float randomrange;
-    static float randomHue;
-    static float randomSaturation;
-    static float randomValue;
+    int randomrange;
+    int randomRed;
+    int randomGreen;
+    int randomBlue;
     
-    // when create object make CircleGenerate(randomHue,randomSaturation,randomValue,getNCircle(level))
+    // when create object make CircleGenerate(randomRed,randomGreen,randomBlue,getNCircle(level))
     // then CircleGenerate.makeRandomRange(level)
 
 
-    public CircleGenerate(float randomHue,float randomSaturation,float randomValue,int n) {
+    public CircleGenerate(int randomRed,int randomGreen,int randomBlue,int n) {
+        n = CircleGenerate.getNCircle(n);
         CircleList.clear();
-        this.randomHue = randomHue;
-        this.randomSaturation = randomSaturation;
-        this.randomValue = randomValue;
-        int hasTarget =0;
+        this.randomRed = randomRed;
+        this.randomGreen = randomGreen;
+        this.randomBlue = randomBlue;
+        this.randomrange = 8;
+        int hasTarget = 0;
         int makeChange = (int)Math.floor(Math.random()*3);
-        makeRandomRange(makeChange);
         
         for(int i = 0; i < n; i++) {
-            Circle c = new Circle(randomHue, randomSaturation, randomValue);
-            JButton b = new JButton();
+            Circle c = new Circle(randomRed, randomGreen, randomBlue);
+            FakeButton b = new FakeButton();
             if(hasTarget==0){
-                c.setTarget((Math.random()>0.5));
+                b.setTarget((Math.random()>0.5));
                 if(i==n-1){
-                    c.setTarget(true);
+                    b.setTarget(true);
                 }
             }
-            if(c.isTarget()){
-                switch (makeChange) {
-                    case 0://hence hue max is 360 saturation and value is 100
-                    c.setHuesetSaturation(randomHue+(float)(3.6*randomrange), randomSaturation+randomrange);
-                    c.setValue(randomValue);
-                    case 1:
-                    c.setSaturationsetValue(randomSaturation+randomrange, randomValue+randomrange);
-                    c.setHue(randomValue);
-                    case 2:
-                    c.setHuesetValue(randomHue+(float)(3.6*randomrange), randomValue+randomrange);
-                    c.setSaturation(randomSaturation);
+
+            if(b.isTarget()){
+                hasTarget++;
+                if(makeChange==0){
+                    c.setRedsetGreen(this.randomRed+this.randomrange, this.randomGreen+randomrange);
+                        c.setBlue(this.randomBlue);
+                }else if(makeChange == 1){
+                    c.setRedsetGreen(this.randomRed+this.randomrange, this.randomGreen+randomrange);
+                        c.setBlue(this.randomBlue);
+                }else{
+                    c.setRedsetBlue(this.randomRed+this.randomrange, this.randomBlue+randomrange);
+                        c.setGreen(this.randomGreen);
                 }
             }
+            b.setPreferredSize(new Dimension(50,50));
+            b.setBorder(new RoundedBorder(10));
             c.setRGB();
-            b.setBackground(c.getC());
+            b.setBorderPainted(false);
+            b.setBackground(c.getColor());
             CircleList.add(b);
             this.add(b);
         }
 
-        this.setVisible(true);
+        randomPlacement(CircleList);
     }
     
     static int getNCircle(int level){
         if(level>0 && level <=5){
-            return 2;
+            return 3;
         }else if(level>5 && level<=15){
             return 4;
         }else if(level>15 && level<=25){
@@ -78,18 +83,21 @@ public class CircleGenerate extends JFrame{
         }
     }
     
-    static void makeRandomRange(int level){
-        if(level>0 && level <=5){
-            randomrange= 50;
-        }else if(level>5 && level<=15){
-            randomrange= 25;
-        }else if(level>15 && level<=25){
-            randomrange=15;
-        }else{
-            randomrange= 10;
-        }
-    }  
-    static void randomPlacement(ArrayList<JButton> CL){
+    // static int makeRandomRange(int level){
+    //     if(level>0 && level <=5){
+    //         return 10;
+    //     }else if(level>5 && level<=15){
+    //         return 5;
+    //     }else if(level>15 && level<=25){
+    //         return 2;
+    //     }else{
+    //         return 1;
+    //     }
+    // }
+
+    static void randomPlacement(ArrayList<FakeButton> CL){
         Collections.shuffle(CL);
     }
+
+
 }

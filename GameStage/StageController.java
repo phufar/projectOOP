@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 // import javax.swing.JOptionPane;
+// import CircleGen.*;
 
 import MainFrame.Lobby;
 
@@ -18,18 +19,18 @@ public class StageController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         JButton srcButton = (JButton) e.getSource();
-
+        
         if(srcButton.getText().equals("COUNT")){
             COUNT();
         }
         else if(srcButton == StageOne.bergerMenu){
             MENUPOPUP();
         }
-        else if(srcButton.getText().equals("BACK")){
-            BACKTOGAME();
-        }
         else if(srcButton.getText().equals("LOBBY")){
             BACKTOLOBBY_STATE_1();
+        }
+        else if(srcButton.getText().equals("BACK")){
+            BACKTOGAME();
         }
     }
 

@@ -2,6 +2,7 @@ package GameStage;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -9,6 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+
+import CircleGen.CircleGenerate;
+import CircleGen.FakeButton;
 
 public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
@@ -44,11 +48,23 @@ public class StageOne extends StageController {
         scoreLabel.setBounds(1180,30,50,50);
         layeredPane.add(scoreLabel,JLayeredPane.DEFAULT_LAYER);
 
+        //Circle
+        CircleGenerate C1 = new CircleGenerate((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1);
+        System.out.println(C1.CircleList.size());
+        JPanel gridPanel = new JPanel(new GridLayout(1, 4));
+        gridPanel.setBounds(0, 120, 1280, 660);
+        for (FakeButton b : C1.CircleList) {
+            // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+            b.addActionListener(stageEvent);
+            gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
+            // layeredPane.add(b);
+        }
+
         //TEST COUNT BTN
-        JButton PlusOne = new JButton("COUNT");
-        PlusOne.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
-        PlusOne.addActionListener(stageEvent);
-        layeredPane.add(PlusOne,JLayeredPane.DEFAULT_LAYER);
+        // JButton PlusOne = new JButton("COUNT");
+        // PlusOne.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+        // PlusOne.addActionListener(stageEvent);
+        // layeredPane.add(PlusOne,JLayeredPane.DEFAULT_LAYER);
 
 
         //Hamberger-Menu
@@ -80,6 +96,7 @@ public class StageOne extends StageController {
         layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
 
         // Add the layered pane to the frame
+        layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
 
