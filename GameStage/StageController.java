@@ -20,7 +20,10 @@ public class StageController  implements ActionListener  {
             COUNT();
         }
         else if(srcButton == StageOne.bergerMenu){
-            new MenuPopup();
+            MENEPOPUP();
+        }
+        else if(srcButton.getText().equals("BACK")){
+            BACTOGAME();
         }
     }
 
@@ -30,6 +33,13 @@ public class StageController  implements ActionListener  {
         StageOne.scoreLabel.setText(""+score);
         System.out.println("Score: "+score);
         System.out.println("ScoreLEVEL: "+ScoreLEVEL);
+    }
+    private void MENEPOPUP(){
+        new MenuPopup();
+    }
+    private void BACTOGAME(){
+        MenuPopup.menuFrame.setVisible(false);
+        MenuPopup.menuFrame.dispose();
     }
 }
 

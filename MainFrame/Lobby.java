@@ -25,7 +25,7 @@ public class Lobby extends JFrame {
         frameLobby.setSize(1280, 720);
         frameLobby.setLocationRelativeTo(null);
         frameLobby.getContentPane().setLayout(new BorderLayout());
-
+        frameLobby.setUndecorated(true);
         // Create a JLayeredPane
         JLayeredPane layeredPane = new JLayeredPane();
 
@@ -38,6 +38,9 @@ public class Lobby extends JFrame {
         Start.setBounds(48, 442, 180, 59);
         Option.setBounds(48, 522, 180, 59);
         Quit.setBounds(48, 602, 180, 59);
+        Start.setFocusable(false);
+        Option.setFocusable(false);
+        Quit.setFocusable(false);
 
         // set Button Color
         Start.setBackground(new Color(147, 147, 147));

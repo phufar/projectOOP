@@ -32,6 +32,7 @@ public class Option extends JFrame {
 
         // Set Button
         BACK.setBounds(48, 602, 180, 59);
+        BACK.setFocusable(false);
 
         // set Button Color
         BACK.setBackground(new Color(147, 147, 147));

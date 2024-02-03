@@ -24,6 +24,7 @@ public class StageOne extends StageController {
         stageOne.setTitle("Stage 1");
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stageOne.setLocationRelativeTo(null);
+        stageOne.setUndecorated(true);
 
         // Create a JLayeredPane
         JLayeredPane layeredPane = new JLayeredPane();
