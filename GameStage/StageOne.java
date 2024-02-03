@@ -48,7 +48,7 @@ public class StageOne extends StageController {
         layeredPane.add(scoreLabel,JLayeredPane.DEFAULT_LAYER);
 
         //Circle
-        CircleGenerate C1 = new CircleGenerate((float)(Math.random()*360),(float)(Math.random()*100),(float)(Math.random()*100),1);
+        CircleGenerate C1 = new CircleGenerate((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1);
 
         //TEST COUNT BTN
         JButton PlusOne = new JButton("COUNT");

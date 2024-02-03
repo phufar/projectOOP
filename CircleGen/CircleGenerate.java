@@ -17,27 +17,31 @@ public class CircleGenerate extends JFrame{
     private ArrayList<JButton> CircleList = new ArrayList<>();
     
     static int level;
-    static float randomrange;
-    static float randomHue;
-    static float randomSaturation;
-    static float randomValue;
+    static int randomrange;
+    static int randomRed;
+    static int randomGreen;
+    static int randomBlue;
     
-    // when create object make CircleGenerate(randomHue,randomSaturation,randomValue,getNCircle(level))
+    // when create object make CircleGenerate(randomRed,randomGreen,randomBlue,getNCircle(level))
     // then CircleGenerate.makeRandomRange(level)
 
 
-    public CircleGenerate(float randomHue,float randomSaturation,float randomValue,int n) {
+    public CircleGenerate(int randomRed,int randomGreen,int randomBlue,int n) {
         n = CircleGenerate.getNCircle(n);
         CircleList.clear();
-        this.randomHue = randomHue;
-        this.randomSaturation = randomSaturation;
-        this.randomValue = randomValue;
+        this.randomRed = randomRed;
+        this.randomGreen = randomGreen;
+        this.randomBlue = randomBlue;
+        this.randomrange = CircleGenerate.makeRandomRange(n);
         int hasTarget =0;
         int makeChange = (int)Math.floor(Math.random()*3);
+        System.out.println(randomrange);
+        System.out.println(String.format("[%s, %s, %s]", randomRed,randomGreen,randomBlue));
+        System.out.println(makeChange);
         makeRandomRange(makeChange);
         
         for(int i = 0; i < n; i++) {
-            Circle c = new Circle(randomHue, randomSaturation, randomValue);
+            Circle c = new Circle(randomRed, randomGreen, randomBlue);
             JButton b = new JButton();
             if(hasTarget==0){
                 c.setTarget((Math.random()>0.5));
@@ -46,20 +50,35 @@ public class CircleGenerate extends JFrame{
                 }
             }
             if(c.isTarget()){
-                switch (makeChange) {
-                    case 0://hence hue max is 360 saturation and value is 100
-                    c.setHuesetSaturation(randomHue+(float)(3.6*randomrange), randomSaturation+randomrange);
-                    c.setValue(randomValue);
-                    case 1:
-                    c.setSaturationsetValue(randomSaturation+randomrange, randomValue+randomrange);
-                    c.setHue(randomValue);
-                    case 2:
-                    c.setHuesetValue(randomHue+(float)(3.6*randomrange), randomValue+randomrange);
-                    c.setSaturation(randomSaturation);
+                hasTarget++;
+                // switch (makeChange) {
+                //     case 0://hence Red max is 360 Green and Blue is 100
+                //         c.setRedsetGreen(this.randomRed+(int)(3.6*this.randomrange), this.randomGreen+randomrange);
+                //         c.setBlue(this.randomBlue);
+                //     case 1:
+                //     c.setRedsetGreen(this.randomRed+(int)(3.6*this.randomrange), this.randomGreen+randomrange);
+                //     c.setBlue(this.randomBlue);
+                //     case 2:
+                //         c.setRedsetBlue(this.randomRed+(int)(3.6*randomrange), this.randomBlue+randomrange);
+                //         c.setGreen(this.randomGreen);
+                // }
+                if(makeChange==0){
+                    c.setRedsetGreen(this.randomRed+this.randomrange, this.randomGreen+randomrange);
+                        c.setBlue(this.randomBlue);
+                }else if(makeChange == 1){
+                    c.setRedsetGreen(this.randomRed+this.randomrange, this.randomGreen+randomrange);
+                        c.setBlue(this.randomBlue);
+                }else{
+                    c.setRedsetBlue(this.randomRed+this.randomrange, this.randomBlue+randomrange);
+                        c.setGreen(this.randomGreen);
                 }
             }
+            System.out.println(c.getRed()+" "+c.getGreen()+" "+c.getBlue());
+
             c.setRGB();
             b.setBackground(c.getC());
+            System.out.println(c.isTarget());
+            System.out.println(c.getC());
             b.setVisible(true);
             CircleList.add(b);
             this.add(b);
@@ -71,7 +90,7 @@ public class CircleGenerate extends JFrame{
     
     static int getNCircle(int level){
         if(level>0 && level <=5){
-            return 2;
+            return 3;
         }else if(level>5 && level<=15){
             return 4;
         }else if(level>15 && level<=25){
@@ -81,17 +100,18 @@ public class CircleGenerate extends JFrame{
         }
     }
     
-    static void makeRandomRange(int level){
+    static int makeRandomRange(int level){
         if(level>0 && level <=5){
-            randomrange= 50;
+            return 10;
         }else if(level>5 && level<=15){
-            randomrange= 25;
+            return 5;
         }else if(level>15 && level<=25){
-            randomrange=15;
+            return 2;
         }else{
-            randomrange= 10;
+            return 1;
         }
-    }  
+    }
+
     static void randomPlacement(ArrayList<JButton> CL){
         Collections.shuffle(CL);
     }
