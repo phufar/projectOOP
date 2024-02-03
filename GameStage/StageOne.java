@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import CircleGen.CircleGenerate;
+import color_lab.Circle;
+
 public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
     static JButton bergerMenu = new JButton();
@@ -43,6 +46,9 @@ public class StageOne extends StageController {
         scoreLabel.setForeground(new Color(58,58,58));
         scoreLabel.setBounds(1180,30,50,50);
         layeredPane.add(scoreLabel,JLayeredPane.DEFAULT_LAYER);
+
+        //Circle
+        CircleGenerate C1 = new CircleGenerate((float)(Math.random()*360),(float)(Math.random()*100),(float)(Math.random()*100),1);
 
         //TEST COUNT BTN
         JButton PlusOne = new JButton("COUNT");

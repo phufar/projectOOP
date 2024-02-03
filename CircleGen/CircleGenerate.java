@@ -27,6 +27,7 @@ public class CircleGenerate extends JFrame{
 
 
     public CircleGenerate(float randomHue,float randomSaturation,float randomValue,int n) {
+        n = CircleGenerate.getNCircle(n);
         CircleList.clear();
         this.randomHue = randomHue;
         this.randomSaturation = randomSaturation;
@@ -59,8 +60,10 @@ public class CircleGenerate extends JFrame{
             }
             c.setRGB();
             b.setBackground(c.getC());
+            b.setVisible(true);
             CircleList.add(b);
             this.add(b);
+
         }
 
         this.setVisible(true);

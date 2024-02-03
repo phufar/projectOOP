@@ -1,22 +1,42 @@
 package color_lab;
+
 import java.awt.Color;
 
 public class Circle {
     private float hue, saturation, value;
     private boolean target = false;
     private Color c;
-    
+
     public Circle(float hue, float saturation, float value) {
         this.hue = hue;
         this.saturation = saturation;
         this.value = value;
     }
-    
-    public void setRGB() {
-        int rgb = Integer.valueOf(hsvtoRGB(getHue(), getSaturation(), getValue()));
-        c = new Color(rgb);
+
+    public static Color HexToColor(String hex) {
+        hex = hex.replace("#", "");
+        switch (hex.length()) {
+            case 6:
+                return new Color(
+                        Integer.valueOf(hex.substring(0, 2), 16),
+                        Integer.valueOf(hex.substring(2, 4), 16),
+                        Integer.valueOf(hex.substring(4, 6), 16));
+            case 8:
+                return new Color(
+                        Integer.valueOf(hex.substring(0, 2), 16),
+                        Integer.valueOf(hex.substring(2, 4), 16),
+                        Integer.valueOf(hex.substring(4, 6), 16),
+                        Integer.valueOf(hex.substring(6, 8), 16));
+        }
+        return null;
     }
-    
+
+    public void setRGB() {
+        String rgb = hsvtoRGB(getHue(), getSaturation(), getValue());
+        System.out.println("s");
+        c = HexToColor(rgb);
+    }
+
     public String hsvtoRGB(float H, float S, float V) {
         float R, G, B;
         H /= 360f;
@@ -80,18 +100,20 @@ public class Circle {
             gs = "0" + gs;
         if (bs.length() == 1)
             bs = "0" + bs;
-        return ""+rs + gs + bs;
+        return "#" + rs + gs + bs;
     }
 
-    public void setHuesetSaturation(float hue,float saturation) {
+    public void setHuesetSaturation(float hue, float saturation) {
         this.hue = hue;
-        this.saturation =saturation;
+        this.saturation = saturation;
     }
-    public void setHuesetValue(float hue,float value) {
+
+    public void setHuesetValue(float hue, float value) {
         this.hue = hue;
-        this.value =value;
+        this.value = value;
     }
-    public void setSaturationsetValue(float saturation,float value){
+
+    public void setSaturationsetValue(float saturation, float value) {
         this.saturation = saturation;
         this.value = value;
     }
@@ -136,6 +158,4 @@ public class Circle {
         return c;
     }
 
-
 }
-
