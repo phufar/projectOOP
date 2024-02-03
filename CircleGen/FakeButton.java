@@ -4,10 +4,10 @@ import javax.swing.JButton;
 
 public class FakeButton extends JButton{
     boolean target = false;
-    void setTarget(boolean t){
+    public void setTarget(boolean t){
         this.target=t;
     }
-    boolean isTarget(){
+    public boolean isTarget(){
         return this.target;
     }
 }
