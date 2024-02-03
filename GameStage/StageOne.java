@@ -58,6 +58,7 @@ public class StageOne extends StageController {
         gridPanel.setBounds(0, 121, 500, 500);
         for (FakeButton b : C1.CircleList) {
             b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+            b.addActionListener(stageEvent);
             gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
         }
 

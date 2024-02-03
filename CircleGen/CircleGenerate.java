@@ -19,10 +19,10 @@ public class CircleGenerate extends JFrame{
     public ArrayList<FakeButton> CircleList = new ArrayList<>();
     
     static int level;
-    static int randomrange;
-    static int randomRed;
-    static int randomGreen;
-    static int randomBlue;
+    int randomrange;
+    int randomRed;
+    int randomGreen;
+    int randomBlue;
     
     // when create object make CircleGenerate(randomRed,randomGreen,randomBlue,getNCircle(level))
     // then CircleGenerate.makeRandomRange(level)
@@ -34,7 +34,7 @@ public class CircleGenerate extends JFrame{
         this.randomRed = randomRed;
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
-        this.randomrange = 5;
+        this.randomrange = 8;
         int hasTarget = 0;
         int makeChange = (int)Math.floor(Math.random()*3);
         
