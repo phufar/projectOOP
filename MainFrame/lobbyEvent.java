@@ -1,16 +1,19 @@
 package MainFrame;
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+// import javax.swing.JOptionPane;
+
+import GameStage.StageOne;
 
 public class lobbyEvent implements ActionListener {
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton srcButton = (JButton) e.getSource();
+        JButton srcButton = (JButton) e.getSource(); 
 
         if (srcButton.getText().equals("START")) {
             START();
@@ -27,25 +30,28 @@ public class lobbyEvent implements ActionListener {
     }
 
     private void START() {
-        JOptionPane.showMessageDialog(null, "START!!!");
+        // JOptionPane.showMessageDialog(null, "START!!!");
+        Lobby.frameLobby.setVisible(false);
+        Lobby.frameLobby.dispose();
+        new StageOne();
+
     }
 
     private void OPTION() {
-        // JOptionPane.showMessageDialog(null, "OPTION!!!");
         Lobby.frameLobby.setVisible(false);
         Lobby.frameLobby.dispose();
         new Option();
     }
 
     private void QUIT() {
-        // JOptionPane.showMessageDialog(null, "QUIT!!!");
         System.exit(0);
     }
     private void BACK(){
-        // JOptionPane.showMessageDialog(null, "BACK!!!");
         new Lobby();
         Option.frameOption.setVisible(false);
         Option.frameOption.dispose();
     }
 
 }
+
+
