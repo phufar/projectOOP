@@ -1,6 +1,5 @@
 package CircleGen;
 
-import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -36,9 +35,9 @@ public class FakeButton extends JButton{
         g2.fill(circle);
 
         // Set the border color
-        g2.setColor(getForeground());
-        g2.setStroke(new BasicStroke(2)); // You can adjust the border thickness
-        g2.draw(circle);
+        // g2.setColor(getBackground());
+        // g2.setStroke(new BasicStroke(2)); // You can adjust the border thickness
+        // g2.draw(circle);
 
         g2.dispose();
         super.paintComponent(g);

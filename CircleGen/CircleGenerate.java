@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import color_lab.Circle;
@@ -33,7 +32,7 @@ public class CircleGenerate extends JFrame{
         this.randomRed = randomRed;
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
-        this.randomrange = 15;
+        this.randomrange = 8;
         int hasTarget = 0;
         int makeChange = (int)Math.floor(Math.random()*3);
         
@@ -60,9 +59,8 @@ public class CircleGenerate extends JFrame{
                         c.setGreen(this.randomGreen);
                 }
             }
-            b.setPreferredSize(new Dimension(40,40));
-            b.setBorder(null);
-            b.setBorderPainted(false);
+            b.setPreferredSize(new Dimension(50,50));
+            b.setBorder(new RoundedBorder(10));
             c.setRGB();
             b.setBorderPainted(false);
             b.setBackground(c.getColor());

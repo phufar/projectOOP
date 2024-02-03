@@ -3,11 +3,8 @@ package CircleGen;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Insets;
-import java.awt.RenderingHints;
 
 import javax.swing.border.AbstractBorder;
-import javax.swing.border.Border;
 
 // public class RoundedBorder implements Border {
 //     private int radius;
