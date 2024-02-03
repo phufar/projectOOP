@@ -1,25 +1,69 @@
 package GameStage;
 
 import java.awt.Color;
+import java.awt.Font;
 
-import javax.swing.JDialog;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class MenuPopup {
-    
-    static JPanel menuPopup = new JPanel();
+public class MenuPopup extends StageController {
 
-    MenuPopup(){
-        JDialog menuFrame = new JDialog();
-        menuFrame.setSize(500,500);
-        menuFrame.setUndecorated(true);
+    static JFrame menuFrame = new JFrame();
+    static JButton BACTOGAME;
+    static StageController stageEvent = new StageController();
+
+    public MenuPopup() {
+
+        
+        menuFrame.setSize(500, 500);
+        menuFrame.setTitle("MENUFRAME");
         menuFrame.setLocationRelativeTo(null);
-        menuFrame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        menuFrame.add(menuPopup);
+        menuFrame.setUndecorated(true);
+        menuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        menuPopup.setBounds(100, 100, 500, 500);
-        menuPopup.setBackground(new Color(255, 224, 224));
-        menuFrame.add(menuPopup);
+        // Create a JLayeredPane
+        JLayeredPane layeredPane = new JLayeredPane();
+
+        // Add Button
+        JButton MenuLobby = new JButton("LOBBY");
+        MenuLobby.setBounds(150, 70, 200, 80);
+        MenuLobby.setForeground(Color.WHITE);
+        MenuLobby.setFont(new Font("Inter", Font.BOLD, 30));
+        MenuLobby.setBorder(null);
+        MenuLobby.setFocusable(false);
+        MenuLobby.setBackground(new Color(147,147,147));
+        layeredPane.add(MenuLobby, JLayeredPane.DEFAULT_LAYER);
+
+        JButton MenuOption = new JButton("OPTION");
+        MenuOption.setBounds(150, 190, 200, 80);
+        MenuOption.setForeground(Color.WHITE);
+        MenuOption.setFont(new Font("Inter", Font.BOLD, 30));
+        MenuOption.setBorder(null);
+        MenuOption.setFocusable(false);
+        MenuOption.setBackground(new Color(147,147,147));
+        layeredPane.add(MenuOption, JLayeredPane.DEFAULT_LAYER);
+
+        JButton BACTOGAME = new JButton("BACK");
+        BACTOGAME.setFont(new Font("Inter", Font.BOLD, 30));
+        BACTOGAME.setForeground(Color.WHITE);
+        BACTOGAME.setBounds(150, 310, 200, 80);
+        BACTOGAME.setBorder(null);
+        BACTOGAME.setFocusable(false);
+        BACTOGAME.setBackground(new Color(147,147,147));
+        layeredPane.add(BACTOGAME, JLayeredPane.DEFAULT_LAYER);
+        
+        // MainPanel
+        JPanel MainMenuPanel = new JPanel();
+        MainMenuPanel.setBackground(new Color(217, 217, 217));
+        MainMenuPanel.setBounds(0, 0, 500, 500);
+        layeredPane.add(MainMenuPanel, JLayeredPane.DEFAULT_LAYER);
+        
+        BACTOGAME.addActionListener(stageEvent);
+
+        menuFrame.getContentPane().add(layeredPane);
         menuFrame.setVisible(true);
+
     }
 }
