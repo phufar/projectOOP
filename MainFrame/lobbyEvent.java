@@ -33,8 +33,10 @@ public class lobbyEvent implements ActionListener {
         // JOptionPane.showMessageDialog(null, "START!!!");
         Lobby.frameLobby.setVisible(false);
         Lobby.frameLobby.dispose();
-        new StageOne();
 
+        new StageOne();
+        
+        
     }
 
     private void OPTION() {

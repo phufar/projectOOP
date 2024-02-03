@@ -12,6 +12,7 @@ public class MenuPopup extends StageController {
 
     static JFrame menuFrame = new JFrame();
     static JButton BACTOGAME;
+    public static JButton MenuLobby;
     static StageController stageEvent = new StageController();
 
     public MenuPopup() {
@@ -34,6 +35,7 @@ public class MenuPopup extends StageController {
         MenuLobby.setBorder(null);
         MenuLobby.setFocusable(false);
         MenuLobby.setBackground(new Color(147,147,147));
+        MenuLobby.addActionListener(stageEvent);
         layeredPane.add(MenuLobby, JLayeredPane.DEFAULT_LAYER);
 
         JButton MenuOption = new JButton("OPTION");

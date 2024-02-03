@@ -14,12 +14,12 @@ public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
     static JButton bergerMenu = new JButton();
     static JLabel scoreLabel = new JLabel();
+    public static JFrame stageOne = new JFrame() ;
     
 
     public StageOne(){
 
-
-        JFrame stageOne = new JFrame();
+        //setFrame
         stageOne.setSize(1280,720);
         stageOne.setTitle("Stage 1");
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
