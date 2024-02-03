@@ -1,7 +1,10 @@
 package GameStage;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -50,12 +53,20 @@ public class StageOne extends StageController {
 
         //Circle
         CircleGenerate C1 = new CircleGenerate((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1);
+        System.out.println(C1.CircleList.size());
+        JPanel gridPanel = new JPanel(new GridLayout(1, 3));
+        gridPanel.setBounds(0, 121, 500, 500);
+        for (FakeButton b : C1.CircleList) {
+            b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+            b.addActionListener(stageEvent);
+            gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
+        }
 
         //TEST COUNT BTN
-        JButton PlusOne = new JButton("COUNT");
-        PlusOne.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
-        PlusOne.addActionListener(stageEvent);
-        layeredPane.add(PlusOne,JLayeredPane.DEFAULT_LAYER);
+        // JButton PlusOne = new JButton("COUNT");
+        // PlusOne.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+        // PlusOne.addActionListener(stageEvent);
+        // layeredPane.add(PlusOne,JLayeredPane.DEFAULT_LAYER);
 
 
         //Hamberger-Menu
@@ -87,6 +98,7 @@ public class StageOne extends StageController {
         layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
 
         // Add the layered pane to the frame
+        layeredPane.add(gridPanel, JLayeredPane.DEFAULT_LAYER);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
 

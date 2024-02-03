@@ -99,4 +99,6 @@ public class CircleGenerate extends JFrame{
     static void randomPlacement(ArrayList<FakeButton> CL){
         Collections.shuffle(CL);
     }
+
+
 }
