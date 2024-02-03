@@ -11,6 +11,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
 import CircleGen.CircleGenerate;
+import CircleGen.FakeButton;
 import color_lab.Circle;
 
 public class StageOne extends StageController {

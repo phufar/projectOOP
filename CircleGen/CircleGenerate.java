@@ -1,10 +1,12 @@
 package CircleGen;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.border.Border;
 
 import color_lab.Circle;
 
@@ -14,7 +16,7 @@ import color_lab.Circle;
 // }
 
 public class CircleGenerate extends JFrame{
-    ArrayList<FakeButton> CircleList = new ArrayList<>();
+    public ArrayList<FakeButton> CircleList = new ArrayList<>();
     
     static int level;
     static int randomrange;
@@ -45,6 +47,7 @@ public class CircleGenerate extends JFrame{
                     b.setTarget(true);
                 }
             }
+
             if(b.isTarget()){
                 hasTarget++;
                 if(makeChange==0){
@@ -58,7 +61,8 @@ public class CircleGenerate extends JFrame{
                         c.setGreen(this.randomGreen);
                 }
             }
-
+            b.setPreferredSize(new Dimension(50,50));
+            b.setBorder(new RoundedBorder(10));
             c.setRGB();
             b.setBackground(c.getColor());
             CircleList.add(b);
