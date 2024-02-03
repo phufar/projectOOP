@@ -14,7 +14,7 @@ import color_lab.Circle;
 // }
 
 public class CircleGenerate extends JFrame{
-    ArrayList<FakeButton> CircleList = new ArrayList<>();
+    public ArrayList<FakeButton> CircleList = new ArrayList<>();
     
     static int level;
     static int randomrange;
@@ -95,4 +95,6 @@ public class CircleGenerate extends JFrame{
     static void randomPlacement(ArrayList<FakeButton> CL){
         Collections.shuffle(CL);
     }
+
+
 }
