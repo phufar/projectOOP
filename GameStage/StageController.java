@@ -16,12 +16,7 @@ public class StageController  implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e){
         JButton srcButton = (JButton) e.getSource();
-        // check is target
-        FakeButton fakeButton = (FakeButton) srcButton;
-        if(fakeButton.isTarget()){
-            COUNT();
-        }
-
+        
         if(srcButton.getText().equals("COUNT")){
             COUNT();
         }
@@ -30,6 +25,10 @@ public class StageController  implements ActionListener  {
         }
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
+        }
+        // check is target
+        else if(((FakeButton)srcButton).isTarget()){
+            COUNT();
         }
     }
 

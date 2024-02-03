@@ -60,6 +60,7 @@ public class StageOne extends StageController {
             b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
             b.addActionListener(stageEvent);
             gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
+            // layeredPane.add(b);
         }
 
         //TEST COUNT BTN

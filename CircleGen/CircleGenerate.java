@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
@@ -34,7 +35,7 @@ public class CircleGenerate extends JFrame{
         this.randomRed = randomRed;
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
-        this.randomrange = 8;
+        this.randomrange = 15;
         int hasTarget = 0;
         int makeChange = (int)Math.floor(Math.random()*3);
         
@@ -62,7 +63,8 @@ public class CircleGenerate extends JFrame{
                 }
             }
             b.setPreferredSize(new Dimension(40,40));
-            b.setBorder(new RoundedBorder(10));
+            b.setBorder(null);
+            b.setBorderPainted(false);
             c.setRGB();
             b.setBackground(c.getColor());
             CircleList.add(b);
