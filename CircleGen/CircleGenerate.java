@@ -32,7 +32,7 @@ public class CircleGenerate extends JFrame{
         this.randomRed = randomRed;
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
-        this.randomrange = 8;
+        this.randomrange = 10;
         int hasTarget = 0;
         int makeChange = (int)Math.floor(Math.random()*3);
         
@@ -81,6 +81,9 @@ public class CircleGenerate extends JFrame{
         }else{
             return 16;
         }
+    }
+    public ArrayList<FakeButton> getCircleList(){
+        return CircleList;
     }
     
     // static int makeRandomRange(int level){

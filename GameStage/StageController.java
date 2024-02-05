@@ -7,7 +7,9 @@ import javax.swing.JButton;
 // import javax.swing.JOptionPane;
 import CircleGen.*;
 
+
 import MainFrame.Lobby;
+import color_lab.Circle;
 
 
 public class StageController implements ActionListener {
@@ -33,7 +35,11 @@ public class StageController implements ActionListener {
             BACKTOGAME();
         }else if(((FakeButton)srcButton).isTarget()){
             COUNT();
-        }
+            StageOne.resetCircleGen();
+            StageOne.stageOne.setVisible(false);
+            StageOne.stageOne.dispose();
+            new StageOne();
+    }
     }
 
     private void COUNT(){

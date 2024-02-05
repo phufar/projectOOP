@@ -3,6 +3,7 @@ package GameStage;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,17 +14,21 @@ import javax.swing.JPanel;
 
 import CircleGen.CircleGenerate;
 import CircleGen.FakeButton;
+import color_lab.Circle;
 
 public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
     static JButton bergerMenu = new JButton();
     static JLabel scoreLabel = new JLabel();
     public static JFrame stageOne = new JFrame() ;
+    public static ArrayList <CircleGenerate> CircleGenList = new ArrayList<>();
     
-
+    
     public StageOne(){
-
         //setFrame
+        int Red =(int)(Math.random()*255);
+        int Green =(int)(Math.random()*255);
+        int Blue = (int)(Math.random()*255);
         stageOne.setSize(1280,720);
         stageOne.setTitle("Stage 1");
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,11 +54,11 @@ public class StageOne extends StageController {
         layeredPane.add(scoreLabel,JLayeredPane.DEFAULT_LAYER);
 
         //Circle
-        CircleGenerate C1 = new CircleGenerate((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1);
-        System.out.println(C1.CircleList.size());
+        CircleGenList.add(new CircleGenerate(Red,Green,Blue,ScoreLEVEL));
+        (CircleGenList.get(0).getCircleList()).size();
         JPanel gridPanel = new JPanel(new GridLayout(1, 4));
         gridPanel.setBounds(0, 120, 1280, 660);
-        for (FakeButton b : C1.CircleList) {
+        for (FakeButton b : CircleGenList.get(0).getCircleList()) {
             // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
             b.addActionListener(stageEvent);
             gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
@@ -99,6 +104,14 @@ public class StageOne extends StageController {
         layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
-
+        
+        
+    }
+    public static void resetCircleGen(){
+        int Red =(int)(Math.random()*255);
+        int Green =(int)(Math.random()*255);
+        int Blue = (int)(Math.random()*255);
+        CircleGenList.clear();
+        CircleGenList.add(0,new CircleGenerate(Red,Green,Blue,ScoreLEVEL));
     }
 }
