@@ -20,6 +20,7 @@ public class CircleGenerate extends JFrame {
     int randomRed;
     int randomGreen;
     int randomBlue;
+    boolean hasTarget = false;
     static int k =0;
 
     // when create object make
@@ -38,31 +39,23 @@ public class CircleGenerate extends JFrame {
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
         this.randomRange = 10;
-        int hasTarget = 0;
-        int makeChange = (int) Math.floor(Math.random() * 3);
 
         for (int i = 0; i < n; i++) {
             Circle c = new Circle(randomRed, randomGreen, randomBlue);
             FakeButton b = new FakeButton();
-            if (hasTarget == 0) {
+            if (hasTarget==false) {
                 b.setTarget((Math.random() > 0.5));
-                if (i == n - 1) {
-                    b.setTarget(true);
+                if(b.isTarget()){
+                    hasTarget=true;
+                    c.setRedsetGreen(this.randomRed + this.randomRange, this.randomGreen + randomRange);
+                    c.setBlue(this.randomBlue);
                 }
             }
-
-            if (b.isTarget()) {
-                hasTarget++;
-                if (makeChange == 0) {
-                    c.setRedsetGreen(this.randomRed + this.randomRange, this.randomGreen + randomRange);
-                    c.setBlue(this.randomBlue);
-                } else if (makeChange == 1) {
-                    c.setRedsetGreen(this.randomRed + this.randomRange, this.randomGreen + randomRange);
-                    c.setBlue(this.randomBlue);
-                } else {
-                    c.setRedsetBlue(this.randomRed + this.randomRange, this.randomBlue + randomRange);
-                    c.setGreen(this.randomGreen);
-                }
+            if (i == n - 1 && hasTarget==false) {
+                b.setTarget(true);
+                hasTarget=true;
+                c.setRedsetGreen(this.randomRed + this.randomRange, this.randomGreen + randomRange);
+                c.setBlue(this.randomBlue);
             }
             b.setPreferredSize(new Dimension(50, 50));
             b.setBorder(new RoundedBorder(10));
