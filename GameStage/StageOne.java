@@ -2,6 +2,7 @@ package GameStage;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
     static JButton bergerMenu = new JButton();
     static JLabel scoreLabel = new JLabel();
+    static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
     public static JFrame stageOne = new JFrame() ;
     public static ArrayList <CircleGenerate> CircleGenList = new ArrayList<>();
     public static ArrayList <Integer> randomColor = new ArrayList<>();
@@ -57,8 +59,8 @@ public class StageOne extends StageController {
         randomColor.add((int)(Math.random()*255));
         CircleGenList.add(new CircleGenerate(randomColor.get(0),randomColor.get(1),randomColor.get(2),ScoreLEVEL));
         (CircleGenList.get(0).getCircleList()).size();
-        JPanel gridPanel = new JPanel(new GridLayout(1, 4));
         gridPanel.setBounds(0, 120, 1280, 660);
+        gridPanel.setBackground(new Color(255, 224, 224));
         for (FakeButton b : CircleGenList.get(0).getCircleList()) {
             // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
             b.addActionListener(stageEvent);
@@ -105,6 +107,7 @@ public class StageOne extends StageController {
         layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
+        stageOne.getLayeredPane().paintAll(null);
         
         
     }
@@ -113,8 +116,15 @@ public class StageOne extends StageController {
         randomColor.add((int)(Math.random()*255));
         randomColor.add((int)(Math.random()*255));
         randomColor.add((int)(Math.random()*255));
-        CircleGenList.remove(0);
-        CircleGenList.add(0,new CircleGenerate(randomColor.get(0),randomColor.get(1),randomColor.get(2),ScoreLEVEL));
-        CircleGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
+        gridPanel.removeAll();
+        CircleGenList.removeAll(CircleGenList);
+        CircleGenList.add(new CircleGenerate(randomColor.get(0),randomColor.get(1),randomColor.get(2),ScoreLEVEL));
+        for (FakeButton b : CircleGenList.get(0).getCircleList()) {
+            // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+            b.addActionListener(stageEvent);
+            gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
+            // layeredPane.add(b);
+        }
+        // CircleGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
     }
 }
