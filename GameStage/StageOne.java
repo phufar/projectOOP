@@ -22,15 +22,13 @@ public class StageOne extends StageController {
     static JLabel scoreLabel = new JLabel();
     public static JFrame stageOne = new JFrame() ;
     public static ArrayList <CircleGenerate> CircleGenList = new ArrayList<>();
+    public static ArrayList <Integer> randomColor = new ArrayList<>();
     
     
     public StageOne(){
         //setFrame
-        int Red =(int)(Math.random()*255);
-        int Green =(int)(Math.random()*255);
-        int Blue = (int)(Math.random()*255);
         stageOne.setSize(1280,720);
-        stageOne.setTitle("Stage 1");
+        stageOne.setTitle("Stage" + ScoreLEVEL);
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stageOne.setLocationRelativeTo(null);
         stageOne.setUndecorated(true);
@@ -54,7 +52,10 @@ public class StageOne extends StageController {
         layeredPane.add(scoreLabel,JLayeredPane.DEFAULT_LAYER);
 
         //Circle
-        CircleGenList.add(new CircleGenerate(Red,Green,Blue,ScoreLEVEL));
+        randomColor.add((int)(Math.random()*255));
+        randomColor.add((int)(Math.random()*255));
+        randomColor.add((int)(Math.random()*255));
+        CircleGenList.add(new CircleGenerate(randomColor.get(0),randomColor.get(1),randomColor.get(2),ScoreLEVEL));
         (CircleGenList.get(0).getCircleList()).size();
         JPanel gridPanel = new JPanel(new GridLayout(1, 4));
         gridPanel.setBounds(0, 120, 1280, 660);
@@ -108,10 +109,12 @@ public class StageOne extends StageController {
         
     }
     public static void resetCircleGen(){
-        int Red =(int)(Math.random()*255);
-        int Green =(int)(Math.random()*255);
-        int Blue = (int)(Math.random()*255);
-        CircleGenList.clear();
-        CircleGenList.add(0,new CircleGenerate(Red,Green,Blue,ScoreLEVEL));
+        randomColor.clear();
+        randomColor.add((int)(Math.random()*255));
+        randomColor.add((int)(Math.random()*255));
+        randomColor.add((int)(Math.random()*255));
+        CircleGenList.remove(0);
+        CircleGenList.add(0,new CircleGenerate(randomColor.get(0),randomColor.get(1),randomColor.get(2),ScoreLEVEL));
+        CircleGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
     }
 }
