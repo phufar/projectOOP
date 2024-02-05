@@ -22,6 +22,7 @@ import color_lab.Circle;
 public class StageOne extends StageController {
     static StageController stageEvent = new StageController();
     static JButton bergerMenu = new JButton();
+    static JLayeredPane layeredPane = new JLayeredPane();
     static JLabel scoreLabel = new JLabel();
     static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
     public static JFrame stageOne = new JFrame();
@@ -41,8 +42,7 @@ public class StageOne extends StageController {
         stageOne.setLocationRelativeTo(null);
         stageOne.setUndecorated(true);
 
-        // Create a JLayeredPane
-        JLayeredPane layeredPane = new JLayeredPane();
+
 
         // LEVEL TEXT
         JLabel levelText = new JLabel("LEVEL");

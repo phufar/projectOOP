@@ -18,10 +18,10 @@ import CircleGen.FakeButton;
 import color_lab.Circle;
 
 public class StageOne extends StageController {
-    static StageController stageEvent = new StageController();
-    static JButton bergerMenu = new JButton();
-    static JLabel scoreLabel = new JLabel();
-    static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
+    public static StageController stageEvent = new StageController();
+    public static JButton bergerMenu = new JButton();
+    public static JLabel scoreLabel = new JLabel();
+    public static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
     public static JFrame stageOne = new JFrame() ;
     public static ArrayList <CircleGenerate> CircleGenList = new ArrayList<>();
     public static ArrayList <Integer> randomColor = new ArrayList<>();
@@ -76,6 +76,7 @@ public class StageOne extends StageController {
 
 
         //Hamberger-Menu
+        // JButton bergerMenu = new JButton();
         bergerMenu.setIcon(new ImageIcon("img/menu.png"));
         bergerMenu.setBounds(30, 30, 50, 50);
         bergerMenu.setBorder(null);

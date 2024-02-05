@@ -1,13 +1,15 @@
 package GameStage.temp;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.plaf.nimbus.State;
+
 // import javax.swing.JOptionPane;
 import CircleGen.*;
-
-
+import GameStage.MenuPopup;
 import MainFrame.Lobby;
 import color_lab.Circle;
 
