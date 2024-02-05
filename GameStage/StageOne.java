@@ -115,6 +115,6 @@ public class StageOne extends StageController {
         randomColor.add((int)(Math.random()*255));
         CircleGenList.remove(0);
         CircleGenList.add(0,new CircleGenerate(randomColor.get(0),randomColor.get(1),randomColor.get(2),ScoreLEVEL));
-        CircleGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
+        // CircleGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
     }
 }

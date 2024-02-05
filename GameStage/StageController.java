@@ -39,7 +39,7 @@ public class StageController implements ActionListener {
             StageOne.stageOne.setVisible(false);
             StageOne.stageOne.dispose();
             new StageOne();
-    }
+        }
     }
 
     private void COUNT(){

@@ -13,7 +13,7 @@ import color_lab.Circle;
 // }
 
 public class CircleGenerate extends JFrame {
-    public ArrayList<FakeButton> CircleList = new ArrayList<>();
+    public static ArrayList<FakeButton> CircleList = new ArrayList<>();
 
     static int level;
     int randomRange;
@@ -27,9 +27,13 @@ public class CircleGenerate extends JFrame {
     // then CircleGenerate.makerandomRange(level)
 
     public CircleGenerate(int randomRed, int randomGreen, int randomBlue, int n) {
+        k++;
         CircleList.clear();
         System.out.println("I spawn "+k);
         n = CircleGenerate.getNCircle(n);
+        System.out.println(randomRed);
+        System.out.println(randomGreen);
+        System.out.println(randomBlue);
         this.randomRed = randomRed;
         this.randomGreen = randomGreen;
         this.randomBlue = randomBlue;
