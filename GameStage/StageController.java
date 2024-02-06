@@ -4,11 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.plaf.nimbus.State;
+import javax.swing.JFrame;
 
 // import javax.swing.JOptionPane;
 import CircleGen.*;
-import GameStage.MenuPopup;
 import MainFrame.Lobby;
 
 
@@ -36,11 +35,11 @@ public class StageController extends JFrame implements ActionListener {
         }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
             // StageOne.resetCircleGen();
-            StageOne.stageOne.setVisible(false);
-            StageOne.stageOne.dispose();
-            new StageOne();
+            StageOne.resetCircle();
+            this.paintAll(getGraphics());
+        
         }else if(((FakeButton)srcButton).isTarget()==false){
-            ScoreLEVEL = 0;
+            ScoreLEVEL =0;
             BACKTOLOBBY_STATE_1();
         }
     }
@@ -56,21 +55,26 @@ public class StageController extends JFrame implements ActionListener {
         new MenuPopup();
     }
     private void BACKTOGAME(){
-        System.out.println("back to game!");
+        MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
     }
 
     private void BACKTOLOBBY_STATE_1(){
         System.out.println("YES!!");
+
+        // remove menu bar if pressed
+        MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
+
+        // remove stage 1 tab
         StageOne.stageOne.dispose();
 
         // create lobby menu
-        Lobby.frameLobby.setContentPane(new Lobby());
-        Lobby.frameLobby.revalidate();
-        Lobby.frameLobby.repaint();
+        // Lobby.frameLobby.setContentPane(new Lobby());
+        // Lobby.frameLobby.revalidate();
+        // Lobby.frameLobby.repaint();
         
+        new Lobby();
 
     }
 }
-
