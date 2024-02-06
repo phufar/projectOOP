@@ -6,14 +6,12 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
-
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
 
@@ -131,25 +129,6 @@ public class StageOne extends StageController {
         this.paintAll(getGraphics());
 
     }
-
-    // public static void resetCircleGen() {
-    // randomColor.clear();
-    // randomColor.add((int) (Math.random() * 255));
-    // randomColor.add((int) (Math.random() * 255));
-    // randomColor.add((int) (Math.random() * 255));
-    // gridPanel.removeAll();
-    // FakeButtonGenList.removeAll(FakeButtonGenList);
-    // FakeButtonGenList.add(new CircleGenerate(randomColor.get(0),
-    // randomColor.get(1), randomColor.get(2), ScoreLEVEL));
-    // for (FakeButton b : FakeButtonGenList.get(0).getCircleList()) {
-    // // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
-    // b.addActionListener(stageEvent);
-    // gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
-    // // layeredPane.add(b);
-    // }
-    // //
-    // FakeButtonGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
-    // }
     static int makeTargetX() {
         return rand.nextInt(5);
     }
