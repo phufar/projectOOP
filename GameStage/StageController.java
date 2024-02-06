@@ -56,6 +56,8 @@ public class StageController extends JFrame implements ActionListener {
             gameover();
             BACKTOLOBBY_STATE_1();
             System.out.println("No!");
+            StageOne.stageOne.dispose();
+            new Lobby();
         }
     }
 

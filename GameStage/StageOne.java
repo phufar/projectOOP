@@ -1,5 +1,4 @@
 package GameStage;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -28,9 +27,8 @@ public class StageOne extends StageController {
     public static Random rand;
     public static JFrame stageOne;
     public static ArrayList<Integer> randomColor;
-    
-    private static int GRID_SIZE =2;
-    public static boolean hasTarget = false;
+
+    private static int GRID_SIZE = 5;
     public static FakeButton[][] buttons;
     public static JPanel gridPanel;
     private static int randomRed;
@@ -39,45 +37,56 @@ public class StageOne extends StageController {
     public static int TargetX;
     public static int TargetY;
 
-    static void setGRID_SIZE(){
-        if(ScoreLEVEL<5){
+    static void setGRID_SIZE() {
+        if (ScoreLEVEL < 5) {
             GRID_SIZE = 2;
-        }else if(ScoreLEVEL<15){
+        } else if (ScoreLEVEL < 15) {
             GRID_SIZE = 3;
-        }else if(ScoreLEVEL<25){
+        } else if (ScoreLEVEL < 25) {
             GRID_SIZE = 4;
-        }else{
+        } else {
             GRID_SIZE = 5;
         }
     }
 
+    static int SetRandomRange() {
+        if (ScoreLEVEL < 5) {
+            return 30;
+        } else if (ScoreLEVEL < 15) {
+            return 20;
+        } else if (ScoreLEVEL < 25) {
+            return 15;
+        } else {
+            return 8;
+        }
+    }
+    
     public StageOne() {
-        setGRID_SIZE();
-        stageEvent = new StageController();
-        bergerMenu = new JButton();
-        layeredPane = new JLayeredPane();
-        scoreLabel = new JLabel();
-        // static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
+        //set up variable
         rand = new Random();
-        stageOne = new JFrame();
-        randomColor = new ArrayList<>();
-        
-        hasTarget = false;
-        buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
-        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
-
+        buttons = null;
         randomRed = rand.nextInt(225);
         randomGreen = rand.nextInt(225);
         randomBlue = rand.nextInt(225);
         TargetX = makeTargetX();
         TargetY = makeTargetY();
+        buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
+        //init Stage
+        stageEvent = new StageController();
+        bergerMenu = new JButton();
+        layeredPane = new JLayeredPane();
+        scoreLabel = new JLabel();
+        stageOne = new JFrame();
+        // static JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
+        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE,5,5));
         // setFrame
         stageOne.setSize(1280, 720);
         stageOne.setTitle("Stage" + ScoreLEVEL);
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stageOne.setLocationRelativeTo(null);
         stageOne.setUndecorated(true);
-
+        stageOne.setBackground(Color.black);
+        
         // LEVEL TEXT
         JLabel levelText = new JLabel("LEVEL");
         levelText.setFont(new Font("Inter", Font.BOLD, 30));
@@ -91,33 +100,29 @@ public class StageOne extends StageController {
         scoreLabel.setForeground(new Color(58, 58, 58));
         scoreLabel.setBounds(1180, 30, 50, 50);
         layeredPane.add(scoreLabel, JLayeredPane.DEFAULT_LAYER);
-
-        //Grid Setting
+        //
         gridPanel.setBounds(0, 120, 1280, 660);
         gridPanel.setBackground(new Color(255, 224, 224));
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
                 buttons[i][j] = new FakeButton();
+                buttons[i][j].setPreferredSize(new Dimension(20, 20));
                 buttons[i][j].setBorder(new RoundedBorder(10));
-                buttons[i][j].setPreferredSize(new Dimension(50,50));
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
-                    buttons[i][j].setBackground(new Color(randomRed+30,randomGreen+30,randomBlue+30));
-                }else{
-                    buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
+                    buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
+                    randomBlue + SetRandomRange()));
+                    System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
+                    + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                } else {
+                    buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
                 }
                 buttons[i][j].addActionListener(stageEvent);
-                gridPanel.add(buttons[i][j],JLayeredPane.DEFAULT_LAYER);
-
+                gridPanel.add(buttons[i][j], JLayeredPane.DEFAULT_LAYER);
+                
             }
         }
-
-        //gameover btn
-        gameover = new JButton("GameDED");
-        gameover.setBounds(200, 0, 200, 100);
-        gameover.addActionListener(stageEvent);
-        layeredPane.add(gameover, JLayeredPane.DEFAULT_LAYER);
-        
+    
 
         // Hamberger-Menu
         bergerMenu.setIcon(new ImageIcon("img/menu.png"));
@@ -154,28 +159,37 @@ public class StageOne extends StageController {
 
     }
     static int makeTargetX() {
-        return rand.nextInt(5);
+        return rand.nextInt(GRID_SIZE);
     }
     
     static int makeTargetY() {
-        return rand.nextInt(5);
+        return rand.nextInt(GRID_SIZE);
     }
     
     //Reset New Circle
     public static void resetCircle() {
+        // gridPanel.setVisible(false);
+        // layeredPane.remove(gridPanel);
+        // gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
+        // layeredPane.add(gridPanel);
         buttons[TargetX][TargetY].setTarget(false);
-        TargetX = makeTargetX();
-        TargetY = makeTargetY();
+        // setGRID_SIZE();
+        // buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
         randomRed = rand.nextInt(225);
         randomGreen = rand.nextInt(225);
         randomBlue = rand.nextInt(225);
-        for (int i = 0; i < GRID_SIZE; i++) {
-            for (int j = 0; j < GRID_SIZE; j++) {
+        TargetX = makeTargetX();
+        TargetY = makeTargetY();
+        for (int i = 0; i < buttons.length; i++) {
+            for (int j = 0; j < buttons[i].length; j++) {
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
-                    buttons[i][j].setBackground(new Color(randomRed+30,randomGreen+30,randomBlue+30));
-                }else{
-                    buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
+                    buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
+                            randomBlue + SetRandomRange()));
+                    System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
+                            + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                } else {
+                    buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
                 }
             }
         }
