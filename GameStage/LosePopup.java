@@ -2,6 +2,8 @@ package GameStage;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class LosePopup extends StageController{
+import MainFrame.Lobby;
+
+public class LosePopup extends newdsadsad{
     static JFrame loseFrame;//
     static JPanel losePanel;//
     static JLabel gameover;//
@@ -19,10 +23,10 @@ public class LosePopup extends StageController{
     static JLayeredPane layer = new JLayeredPane();
     
     
-    static StageController stageEvent;
+    static newdsadsad stageEvent;
     public LosePopup(){
 
-        StageController stageEvent = new StageController();
+        newdsadsad Event = new newdsadsad();
         //frame setup
         loseFrame = new JFrame();
         loseFrame.setSize(500,500);
@@ -53,7 +57,7 @@ public class LosePopup extends StageController{
         newGame.setBorder(null);
         newGame.setFocusable(false);
         newGame.setBackground(new Color(147,147,147));
-        newGame.addActionListener(stageEvent);
+        newGame.addActionListener(Event);
         layer.add(newGame, JLayeredPane.DEFAULT_LAYER);
 
         //losePanel
@@ -63,10 +67,26 @@ public class LosePopup extends StageController{
         layer.add(losePanel, JLayeredPane.DEFAULT_LAYER);
 
         loseFrame.getContentPane().add(layer);
-        loseFrame.setVisible(true);
+        loseFrame.setVisible(false);
 
         
     }
 
 
+}
+
+class newdsadsad implements ActionListener {
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        JButton src = (JButton) e.getSource();
+
+        if(src == LosePopup.newGame){
+            LosePopup.loseFrame.setVisible(false);
+            StageOne.stageOne.dispose();
+            new Lobby();
+        }
+    }
+    
 }

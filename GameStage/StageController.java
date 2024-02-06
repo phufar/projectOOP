@@ -27,9 +27,6 @@ public class StageController extends JFrame implements ActionListener {
         else if(srcButton == StageOne.bergerMenu){
             MENUPOPUP();
         }
-        else if(srcButton == LosePopup.newGame){
-            newGame();
-        }
         else if(srcButton.getText().equals("LOBBY")){
             BACKTOLOBBY_STATE_1();
         }
@@ -75,12 +72,8 @@ public class StageController extends JFrame implements ActionListener {
 
     private void lose(){
         ScoreLEVEL =0;
-
         new LosePopup();
+        LosePopup.loseFrame.setVisible(true);
     }
-    private void newGame(){
-        LosePopup.loseFrame.dispose();
-        StageOne.stageOne.dispose();
-        new Lobby();
-    }
+   
 }
