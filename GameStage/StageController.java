@@ -27,20 +27,22 @@ public class StageController extends JFrame implements ActionListener {
         else if(srcButton == StageOne.bergerMenu){
             MENUPOPUP();
         }
+        else if(srcButton == LosePopup.newGame){
+            newGame();
+        }
         else if(srcButton.getText().equals("LOBBY")){
             BACKTOLOBBY_STATE_1();
         }
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
-        }else if(((FakeButton)srcButton).isTarget()==true){
+        }
+        else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
             StageOne.resetCircle();
-            // this.paintAll(getGraphics());
-        
-        }else if(((FakeButton)srcButton).isTarget()==false){
-            ScoreLEVEL =0;
-            StageOne.stageOne.dispose();
-            new Lobby();
+            this.paintAll(getGraphics());
+        }
+        else if(((FakeButton)srcButton).isTarget()==false){
+            lose();
         }
     }
 
@@ -68,13 +70,17 @@ public class StageController extends JFrame implements ActionListener {
 
         // remove stage 1 tab
         StageOne.stageOne.dispose();
-
-        // create lobby menu
-        // Lobby.frameLobby.setContentPane(new Lobby());
-        // Lobby.frameLobby.revalidate();
-        // Lobby.frameLobby.repaint();
-        
         new Lobby();
+    }
 
+    private void lose(){
+        ScoreLEVEL =0;
+
+        new LosePopup();
+    }
+    private void newGame(){
+        LosePopup.loseFrame.dispose();
+        StageOne.stageOne.dispose();
+        new Lobby();
     }
 }

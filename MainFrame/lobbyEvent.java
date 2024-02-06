@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 // import javax.swing.JOptionPane;
 
+import GameStage.LosePopup;
 import GameStage.StageOne;
 
 public class lobbyEvent implements ActionListener {
@@ -32,6 +33,7 @@ public class lobbyEvent implements ActionListener {
     private void START() {
         Lobby.frameLobby.dispose();
         new StageOne();
+        new LosePopup();
     }
 
     private void OPTION() {
