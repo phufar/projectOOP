@@ -20,6 +20,10 @@ public class StageOne extends StageController {
     static JButton bergerMenu;
     static JLayeredPane layeredPane;
     static JLabel scoreLabel;
+
+    //BTN CHECK GAME OVER
+    static JButton gameover;
+
     // static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
     public static Random rand;
     public static JFrame stageOne;
@@ -107,7 +111,13 @@ public class StageOne extends StageController {
 
             }
         }
-    
+
+        //gameover btn
+        gameover = new JButton("GameDED");
+        gameover.setBounds(200, 0, 200, 100);
+        gameover.addActionListener(stageEvent);
+        layeredPane.add(gameover, JLayeredPane.DEFAULT_LAYER);
+        
 
         // Hamberger-Menu
         bergerMenu.setIcon(new ImageIcon("img/menu.png"));
