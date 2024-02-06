@@ -56,8 +56,10 @@ public class StageOne extends StageController {
             return 20;
         } else if (ScoreLEVEL < 25) {
             return 15;
-        } else {
+        } else if (ScoreLEVEL <30) {
             return 8;
+        }else{
+            return 5;
         }
     }
     
