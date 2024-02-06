@@ -15,8 +15,6 @@ public class StageController extends JFrame implements ActionListener {
     static int ScoreLEVEL = 1;
     static String score = Integer.toString(ScoreLEVEL);
 
-
-
     @Override
     public void actionPerformed(ActionEvent e){
         JButton srcButton = (JButton) e.getSource();
