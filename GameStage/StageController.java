@@ -1,20 +1,14 @@
 package GameStage;
 
-import java.awt.Button;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.plaf.nimbus.State;
 
 // import javax.swing.JOptionPane;
 import CircleGen.*;
-import GameStage.MenuPopup;
 import MainFrame.Lobby;
-import color_lab.Circle;
 
 
 public class StageController extends JFrame implements ActionListener {
@@ -76,10 +70,11 @@ public class StageController extends JFrame implements ActionListener {
         StageOne.stageOne.dispose();
 
         // create lobby menu
-        Lobby.frameLobby.setContentPane(new Lobby());
-        Lobby.frameLobby.revalidate();
-        Lobby.frameLobby.repaint();
+        // Lobby.frameLobby.setContentPane(new Lobby());
+        // Lobby.frameLobby.revalidate();
+        // Lobby.frameLobby.repaint();
         
+        new Lobby();
 
     }
 }

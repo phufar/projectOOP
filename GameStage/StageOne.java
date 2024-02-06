@@ -3,7 +3,6 @@ package GameStage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,25 +14,23 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import CircleGen.CircleGenerate;
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
-import color_lab.Circle;
 
 public class StageOne extends StageController {
-    static StageController stageEvent = new StageController();
-    static JButton bergerMenu = new JButton();
-    static JLayeredPane layeredPane = new JLayeredPane();
-    static JLabel scoreLabel = new JLabel();
+    static StageController stageEvent;
+    static JButton bergerMenu;
+    static JLayeredPane layeredPane;
+    static JLabel scoreLabel;
     // static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
-    public static Random rand = new Random();
-    public static JFrame stageOne = new JFrame();
-    public static ArrayList<Integer> randomColor = new ArrayList<>();
+    public static Random rand;
+    public static JFrame stageOne;
+    public static ArrayList<Integer> randomColor;
     
     private static final int GRID_SIZE = 5;
     public static boolean hasTarget = false;
-    public static FakeButton[][] buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
-    public static JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
+    public static FakeButton[][] buttons;
+    public static JPanel gridPanel;
     private static int randomRed;
     private static int randomGreen;
     private static int randomBlue;
@@ -41,10 +38,22 @@ public class StageOne extends StageController {
     public static int TargetY;
 
     public StageOne() {
+        stageEvent = new StageController();
+        bergerMenu = new JButton();
+        layeredPane = new JLayeredPane();
+        scoreLabel = new JLabel();
+        // static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
+        rand = new Random();
+        stageOne = new JFrame();
+        randomColor = new ArrayList<>();
+        
+        hasTarget = false;
+        buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
+        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
 
-        randomRed = rand.nextInt(255);
-        randomGreen = rand.nextInt(255);
-        randomBlue = rand.nextInt(255);
+        randomRed = rand.nextInt(225);
+        randomGreen = rand.nextInt(225);
+        randomBlue = rand.nextInt(225);
         TargetX = makeTargetX();
         TargetY = makeTargetY();
         // setFrame
