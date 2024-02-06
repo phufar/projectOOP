@@ -55,7 +55,7 @@ public class StageOne extends StageController {
             return 8;
         }
     }
-
+    
     public StageOne() {
         //set up variable
         rand = new Random();
@@ -73,21 +73,22 @@ public class StageOne extends StageController {
         scoreLabel = new JLabel();
         stageOne = new JFrame();
         // static JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
-        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE,15,15));
+        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE,5,5));
         // setFrame
         stageOne.setSize(1280, 720);
         stageOne.setTitle("Stage" + ScoreLEVEL);
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         stageOne.setLocationRelativeTo(null);
         stageOne.setUndecorated(true);
-
+        stageOne.setBackground(Color.black);
+        
         // LEVEL TEXT
         JLabel levelText = new JLabel("LEVEL");
         levelText.setFont(new Font("Inter", Font.BOLD, 30));
         levelText.setForeground(new Color(58, 58, 58));
         levelText.setBounds(1070, 30, 175, 50);
         layeredPane.add(levelText, JLayeredPane.DEFAULT_LAYER);
-
+        
         // SCORE
         scoreLabel.setText("" + score);
         scoreLabel.setFont(new Font("Inter", Font.BOLD, 30));
@@ -96,7 +97,7 @@ public class StageOne extends StageController {
         layeredPane.add(scoreLabel, JLayeredPane.DEFAULT_LAYER);
         //
         gridPanel.setBounds(365, 150, 550, 550);
-        gridPanel.setBackground(new Color(255, 224, 224));
+        gridPanel.setBackground(new Color(48, 47, 46));
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
                 buttons[i][j] = new FakeButton();
@@ -105,61 +106,61 @@ public class StageOne extends StageController {
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
                     buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
-                            randomBlue + SetRandomRange()));
+                    randomBlue + SetRandomRange()));
                     System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
-                            + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                    + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
                 } else {
                     buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
                 }
                 buttons[i][j].addActionListener(stageEvent);
                 gridPanel.add(buttons[i][j], JLayeredPane.DEFAULT_LAYER);
-
+                
             }
         }
-
-        // Hamberger-Menu
-        bergerMenu.setIcon(new ImageIcon("img/menu.png"));
-        bergerMenu.setBounds(30, 30, 50, 50);
-        bergerMenu.setBorder(null);
-        bergerMenu.setBorderPainted(false);
-        bergerMenu.setContentAreaFilled(false);
-        bergerMenu.addActionListener(stageEvent);
-        layeredPane.add(bergerMenu, JLayeredPane.DEFAULT_LAYER);
-
-        // Panel-ScoreBoard
-        JPanel panelScoreBoard = new JPanel();
-        panelScoreBoard.setBackground(new Color(217, 217, 217));
-        panelScoreBoard.setBounds(1060, 30, 175, 50);
-        layeredPane.add(panelScoreBoard, JLayeredPane.DEFAULT_LAYER);
-
-        // TopPanel
-        JPanel BottomPanel = new JPanel();
-        BottomPanel.setBackground(new Color(44, 44, 44));
-        BottomPanel.setBounds(0, 0, 1280, 120);
-        layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
-
-        // MainPanel
-        JPanel MainPanel = new JPanel();
-        MainPanel.setBackground(new Color(255, 224, 224));
-        MainPanel.setBounds(0, 0, 1280, 720);
-        layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
-
-        // Add the layered pane to the frame
-        layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
-        stageOne.getContentPane().add(layeredPane);
-        stageOne.setVisible(true);
-        this.paintAll(getGraphics());
-
-    }
-
+        
+                // Hamberger-Menu
+                bergerMenu.setIcon(new ImageIcon("img/menu.png"));
+                bergerMenu.setBounds(30, 30, 50, 50);
+                bergerMenu.setBorder(null);
+                bergerMenu.setBorderPainted(false);
+                bergerMenu.setContentAreaFilled(false);
+                bergerMenu.addActionListener(stageEvent);
+                layeredPane.add(bergerMenu, JLayeredPane.DEFAULT_LAYER);
+                
+                // Panel-ScoreBoard
+                JPanel panelScoreBoard = new JPanel();
+                panelScoreBoard.setBackground(new Color(217, 217, 217));
+                panelScoreBoard.setBounds(1060, 30, 175, 50);
+                layeredPane.add(panelScoreBoard, JLayeredPane.DEFAULT_LAYER);
+                
+                // TopPanel
+                JPanel BottomPanel = new JPanel();
+                BottomPanel.setBackground(new Color(20, 20, 20));
+                BottomPanel.setBounds(0, 0, 1280, 120);
+                layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
+                
+                
+                // Add the layered pane to the frame
+                layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
+                stageOne.getContentPane().add(layeredPane);
+                stageOne.setVisible(true);
+                this.paintAll(getGraphics());
+                
+                // MainPanel
+                JPanel MainPanel = new JPanel();
+                MainPanel.setBackground(new Color(48, 47, 46));
+                MainPanel.setBounds(0, 0, 1280, 720);
+                layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
+        }
+            
     static int makeTargetX() {
         return rand.nextInt(GRID_SIZE);
     }
-
+    
     static int makeTargetY() {
         return rand.nextInt(GRID_SIZE);
     }
-
+    
     public static void resetCircle() {
         // gridPanel.setVisible(false);
         // layeredPane.remove(gridPanel);
