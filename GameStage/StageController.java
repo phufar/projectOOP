@@ -1,15 +1,16 @@
 package GameStage;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.plaf.nimbus.State;
+
 // import javax.swing.JOptionPane;
 import CircleGen.*;
-
-
+import GameStage.MenuPopup;
 import MainFrame.Lobby;
-import MainFrame.Option;
 import color_lab.Circle;
 
 
@@ -34,16 +35,15 @@ public class StageController implements ActionListener {
         }
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
-        }
-        else if(srcButton.getText().equals("OPTION")){
-                OPTION();
-        }
-        else if(((FakeButton)srcButton).isTarget()){
+        }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
-            StageOne.resetCircleGen();
+            // StageOne.resetCircleGen();
             StageOne.stageOne.setVisible(false);
             StageOne.stageOne.dispose();
             new StageOne();
+        }else if(((FakeButton)srcButton).isTarget()==false){
+            ScoreLEVEL =0;
+            BACKTOLOBBY_STATE_1();
         }
     }
 
@@ -61,10 +61,7 @@ public class StageController implements ActionListener {
         MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
     }
-    private void OPTION() {
-        System.out.println("Your was Click Option!!!");
 
-    }
     private void BACKTOLOBBY_STATE_1(){
         System.out.println("YES!!");
         MenuPopup.menuFrame.setVisible(false);
@@ -73,6 +70,8 @@ public class StageController implements ActionListener {
         Lobby.frameLobby.setContentPane(new Lobby());
         Lobby.frameLobby.revalidate();
         Lobby.frameLobby.repaint();
+        
+
     }
 }
 

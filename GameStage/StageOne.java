@@ -72,11 +72,12 @@ public class StageOne extends StageController {
         gridPanel.setBounds(0, 120, 1280, 660);
         gridPanel.setBackground(new Color(255, 224, 224));
         for (int i = 0; i < GRID_SIZE; i++) {
-            for (int j = 0; j < GRID_SIZE; j++) {
-                [i][j] = new JButton();
+            for (int j = 0; j < GRID_SIZE; j++){
+                buttons[i][j] = new FakeButton();
                 buttons[i][j].setBorder(new RoundedBorder(10));
                 buttons[i][j].setPreferredSize(new Dimension(50,50));
                 if (i == TargetX && j == TargetY) {
+                    buttons[i][j].setTarget(true);
                     buttons[i][j].setBackground(new Color(randomRed+10,randomGreen+10,randomBlue));
                 }else{
                     buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
@@ -86,6 +87,7 @@ public class StageOne extends StageController {
 
             }
         }
+    
 
         // Hamberger-Menu
         bergerMenu.setIcon(new ImageIcon("img/menu.png"));

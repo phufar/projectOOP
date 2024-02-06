@@ -31,9 +31,8 @@ public class StageOne extends StageController {
     public static ArrayList<Integer> randomColor = new ArrayList<>();
     
     private static final int GRID_SIZE = 5;
-    public static boolean hasTarget = false;
-    public JButton[][] buttons;
-    public static JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
+    public FakeButton[][] buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
+    public JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
     int randomRed;
     int randomGreen;
     int randomBlue;
@@ -73,10 +72,10 @@ public class StageOne extends StageController {
         gridPanel.setBackground(new Color(255, 224, 224));
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
-                buttons[i][j] = new JButton();
+                buttons[i][j] = new FakeButton();
                 buttons[i][j].setPreferredSize(new Dimension(50,50));
                 if (i == TargetX && j == TargetY) {
-                    buttons[i][j].setBackground(new Color(randomRed+10,randomGreen+10,randomBlue));
+                    buttons[i][j].setBackground(new Color(randomRed+100,randomGreen+10,randomBlue));
                 }else{
                     buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
                 }
@@ -145,5 +144,8 @@ public class StageOne extends StageController {
 
     int makeTargetY() {
         return rand.nextInt(5);
+    }
+    public JButton getTarget(){
+        return this.buttons[TargetX][TargetY];
     }
 }
