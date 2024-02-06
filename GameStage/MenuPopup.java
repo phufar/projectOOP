@@ -10,26 +10,30 @@ import javax.swing.JPanel;
 
 public class MenuPopup extends StageController {
 
-    public static JFrame menuFrame = new JFrame();
+    
+    //Btn-Element
+    static JFrame menuFrame;
+    static JButton MenuLobby;
     static JButton BACTOGAME;
-    public static JButton MenuLobby;
-
-    static StageController stageEvent = new StageController();
+    static StageController stageEvent;
+    static JPanel MainMenuPanel;
 
     public MenuPopup() {
 
+        StageController stageEvent = new StageController();
         
+        menuFrame = new JFrame();
         menuFrame.setSize(500, 500);
         menuFrame.setTitle("MENUFRAME");
         menuFrame.setLocationRelativeTo(null);
         menuFrame.setUndecorated(true);
-        menuFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        menuFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         // Create a JLayeredPane
         JLayeredPane layeredPane = new JLayeredPane();
 
         // Add Button
-        JButton MenuLobby = new JButton("LOBBY");
+        MenuLobby = new JButton("LOBBY");
         MenuLobby.setBounds(150, 120, 200, 80);
         MenuLobby.setForeground(Color.WHITE);
         MenuLobby.setFont(new Font("Inter", Font.BOLD, 30));
@@ -39,8 +43,7 @@ public class MenuPopup extends StageController {
         MenuLobby.addActionListener(stageEvent);
         layeredPane.add(MenuLobby, JLayeredPane.DEFAULT_LAYER);
 
-
-        JButton BACTOGAME = new JButton("BACK");
+        BACTOGAME = new JButton("BACK");
         BACTOGAME.setFont(new Font("Inter", Font.BOLD, 30));
         BACTOGAME.setForeground(Color.WHITE);
         BACTOGAME.setBounds(150, 260, 200, 80);
@@ -59,6 +62,5 @@ public class MenuPopup extends StageController {
 
         menuFrame.getContentPane().add(layeredPane);
         menuFrame.setVisible(true);
-
     }
 }

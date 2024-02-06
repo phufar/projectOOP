@@ -30,16 +30,11 @@ public class lobbyEvent implements ActionListener {
     }
 
     private void START() {
-        // JOptionPane.showMessageDialog(null, "START!!!");
-        Lobby.frameLobby.setVisible(false);
-        Lobby.frameLobby.dispose();
-
         new StageOne();
-
+        Lobby.frameLobby.dispose();
     }
 
     private void OPTION() {
-        Lobby.frameLobby.setVisible(false);
         Lobby.frameLobby.dispose();
         new Option();
     }
@@ -47,10 +42,12 @@ public class lobbyEvent implements ActionListener {
     private void QUIT() {
         System.exit(0);
     }
+
+
+    //In option Scene
     private void BACK(){
-        new Lobby();
-        Option.frameOption.setVisible(false);
         Option.frameOption.dispose();
+        new Lobby();
     }
 
 }

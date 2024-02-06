@@ -20,8 +20,10 @@ public class Option extends JFrame {
         frameOption.setTitle("BLIND");
         frameOption.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameOption.setSize(1280, 720);
-        frameOption.setLocationRelativeTo(Lobby.frameLobby);
+        frameOption.setLocationRelativeTo(null);
         frameOption.setLayout(null);
+        frameOption.setUndecorated(true);
+
         frameOption.getContentPane().setLayout(new BorderLayout());
 
         // Create a JLayeredPane

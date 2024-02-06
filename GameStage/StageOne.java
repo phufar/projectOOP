@@ -3,7 +3,7 @@ package GameStage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
+// import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,19 +15,18 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import CircleGen.CircleGenerate;
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
-import color_lab.Circle;
 
 public class StageOne extends StageController {
-    static StageController stageEvent = new StageController();
-    static JButton bergerMenu = new JButton();
-    static JLayeredPane layeredPane = new JLayeredPane();
-    static JLabel scoreLabel = new JLabel();
-    // static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
+    static JFrame stageOne;
+    static JButton bergerMenu;
+    static JLabel scoreLabel;
+    static JLayeredPane layeredPane;
+
+    static StageController stageEvent;
+
     public Random rand = new Random();
-    public static JFrame stageOne = new JFrame();
     public static ArrayList<Integer> randomColor = new ArrayList<>();
     
     private static final int GRID_SIZE = 5;
@@ -42,12 +41,16 @@ public class StageOne extends StageController {
 
     public StageOne() {
 
+        JLayeredPane layeredPane = new JLayeredPane();
+        StageController stageEvent = new StageController();
         randomRed = rand.nextInt(255);
         randomGreen = rand.nextInt(255);
         randomBlue = rand.nextInt(255);
         TargetX = makeTargetX();
         TargetY = makeTargetY();
+
         // setFrame
+        stageOne = new JFrame();
         stageOne.setSize(1280, 720);
         stageOne.setTitle("Stage" + ScoreLEVEL);
         stageOne.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,13 +65,12 @@ public class StageOne extends StageController {
         layeredPane.add(levelText, JLayeredPane.DEFAULT_LAYER);
 
         // SCORE
-
+        scoreLabel = new JLabel();
         scoreLabel.setText("" + score);
         scoreLabel.setFont(new Font("Inter", Font.BOLD, 30));
         scoreLabel.setForeground(new Color(58, 58, 58));
         scoreLabel.setBounds(1180, 30, 50, 50);
         layeredPane.add(scoreLabel, JLayeredPane.DEFAULT_LAYER);
-        //
         gridPanel.setBounds(0, 120, 1280, 660);
         gridPanel.setBackground(new Color(255, 224, 224));
         for (int i = 0; i < GRID_SIZE; i++) {
@@ -87,9 +89,8 @@ public class StageOne extends StageController {
 
             }
         }
-    
-
         // Hamberger-Menu
+        bergerMenu = new JButton();
         bergerMenu.setIcon(new ImageIcon("img/menu.png"));
         bergerMenu.setBounds(30, 30, 50, 50);
         bergerMenu.setBorder(null);
@@ -123,24 +124,6 @@ public class StageOne extends StageController {
 
     }
 
-    // public static void resetCircleGen() {
-    // randomColor.clear();
-    // randomColor.add((int) (Math.random() * 255));
-    // randomColor.add((int) (Math.random() * 255));
-    // randomColor.add((int) (Math.random() * 255));
-    // gridPanel.removeAll();
-    // FakeButtonGenList.removeAll(FakeButtonGenList);
-    // FakeButtonGenList.add(new CircleGenerate(randomColor.get(0),
-    // randomColor.get(1), randomColor.get(2), ScoreLEVEL));
-    // for (FakeButton b : FakeButtonGenList.get(0).getCircleList()) {
-    // // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
-    // b.addActionListener(stageEvent);
-    // gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
-    // // layeredPane.add(b);
-    // }
-    // //
-    // FakeButtonGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
-    // }
     int makeTargetX() {
         return rand.nextInt(5);
     }
