@@ -153,21 +153,18 @@ public class StageOne extends StageController {
         buttons[TargetX][TargetY].setTarget(false);
         TargetX = makeTargetX();
         TargetY = makeTargetY();
-        int NewRed = rand.nextInt(255);
-        int NewGreen = rand.nextInt(255);
-        int NewBlue = rand.nextInt(255);
+        randomRed = rand.nextInt(225);
+        randomGreen = rand.nextInt(225);
+        randomBlue = rand.nextInt(225);
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
-                    buttons[i][j].setBackground(new Color(NewRed+30,NewGreen+30,NewBlue+30));
+                    buttons[i][j].setBackground(new Color(randomRed+30,randomGreen+30,randomBlue+30));
                 }else{
-                    buttons[i][j].setBackground(new Color(NewRed,NewGreen,NewBlue));
+                    buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
                 }
-                buttons[i][j].addActionListener(stageEvent);
-                gridPanel.add(buttons[i][j],JLayeredPane.DEFAULT_LAYER);
             }
         }
-        
     }
 }
