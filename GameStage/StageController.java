@@ -34,13 +34,16 @@ public class StageController extends JFrame implements ActionListener {
             BACKTOGAME();
         }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
-            // StageOne.resetCircleGen();
+            StageOne.resetCircle();
+            System.out.println("YES!");
             StageOne.resetCircle();
             this.paintAll(getGraphics());
         
         }else if(((FakeButton)srcButton).isTarget()==false){
             ScoreLEVEL =0;
             BACKTOLOBBY_STATE_1();
+            System.out.println("No!");
+            
         }
     }
 
@@ -55,25 +58,13 @@ public class StageController extends JFrame implements ActionListener {
         new MenuPopup();
     }
     private void BACKTOGAME(){
-        MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
     }
 
     private void BACKTOLOBBY_STATE_1(){
         System.out.println("YES!!");
-
-        // remove menu bar if pressed
-        MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
-
-        // remove stage 1 tab
-        StageOne.stageOne.dispose();
-
-        // create lobby menu
-        // Lobby.frameLobby.setContentPane(new Lobby());
-        // Lobby.frameLobby.revalidate();
-        // Lobby.frameLobby.repaint();
-        
+        StageOne.stageOne.dispose(); 
         new Lobby();
 
     }

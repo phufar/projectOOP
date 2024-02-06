@@ -87,7 +87,8 @@ public class StageOne extends StageController {
         scoreLabel.setForeground(new Color(58, 58, 58));
         scoreLabel.setBounds(1180, 30, 50, 50);
         layeredPane.add(scoreLabel, JLayeredPane.DEFAULT_LAYER);
-        //
+
+        //Grid Setting
         gridPanel.setBounds(0, 120, 1280, 660);
         gridPanel.setBackground(new Color(255, 224, 224));
         for (int i = 0; i < GRID_SIZE; i++) {
@@ -150,6 +151,7 @@ public class StageOne extends StageController {
         return rand.nextInt(5);
     }
     
+    //Reset New Circle
     public static void resetCircle() {
         buttons[TargetX][TargetY].setTarget(false);
         TargetX = makeTargetX();

@@ -30,8 +30,8 @@ public class lobbyEvent implements ActionListener {
     }
 
     private void START() {
-        new StageOne();
         Lobby.frameLobby.dispose();
+        new StageOne();
     }
 
     private void OPTION() {
