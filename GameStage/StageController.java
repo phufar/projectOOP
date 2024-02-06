@@ -13,7 +13,7 @@ import MainFrame.Lobby;
 
 public class StageController extends JFrame implements ActionListener {
     static int ScoreLEVEL = 1;
-    public static String score = Integer.toString(ScoreLEVEL);
+    static String score = Integer.toString(ScoreLEVEL);
 
 
 
@@ -27,35 +27,18 @@ public class StageController extends JFrame implements ActionListener {
         else if(srcButton == StageOne.bergerMenu){
             MENUPOPUP();
         }
-
         else if(srcButton.getText().equals("LOBBY")){
             BACKTOLOBBY_STATE_1();
         }
-        else if(srcButton == LosePopup.newGame ){
-            newGame();
-        }
-
-        // else if(srcButton == StageOne.gameover){
-        //     gameover();
-        // }
-
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
-        }
-
-        else if(((FakeButton)srcButton).isTarget()==true){
+        }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
             StageOne.resetCircle();
-            System.out.println("YES!");
-            StageOne.resetCircle();
-            this.paintAll(getGraphics());
+            // this.paintAll(getGraphics());
         
-        }
-        else if(((FakeButton)srcButton).isTarget()==false){
+        }else if(((FakeButton)srcButton).isTarget()==false){
             ScoreLEVEL =0;
-            gameover();
-            BACKTOLOBBY_STATE_1();
-            System.out.println("No!");
             StageOne.stageOne.dispose();
             new Lobby();
         }
@@ -72,25 +55,26 @@ public class StageController extends JFrame implements ActionListener {
         new MenuPopup();
     }
     private void BACKTOGAME(){
+        MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
     }
 
     private void BACKTOLOBBY_STATE_1(){
         System.out.println("YES!!");
+
+        // remove menu bar if pressed
+        MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
-        StageOne.stageOne.dispose(); 
+
+        // remove stage 1 tab
+        StageOne.stageOne.dispose();
+
+        // create lobby menu
+        // Lobby.frameLobby.setContentPane(new Lobby());
+        // Lobby.frameLobby.revalidate();
+        // Lobby.frameLobby.repaint();
+        
         new Lobby();
 
     }
-    private void gameover(){
-        System.out.println("GameOver!!!!");
-        new LosePopup();
-    }
-    private void newGame(){
-        System.out.println("New Game!!");
-        LosePopup.loseFrame.dispose();
-        StageOne.stageOne.dispose(); 
-        new Lobby();
-    }
-
 }

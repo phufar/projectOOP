@@ -101,8 +101,8 @@ public class StageOne extends StageController {
         scoreLabel.setBounds(1180, 30, 50, 50);
         layeredPane.add(scoreLabel, JLayeredPane.DEFAULT_LAYER);
         //
-        gridPanel.setBounds(0, 120, 1280, 660);
-        gridPanel.setBackground(new Color(255, 224, 224));
+        gridPanel.setBounds(365, 150, 550, 550);
+        gridPanel.setBackground(new Color(48, 47, 46));
         for (int i = 0; i < GRID_SIZE; i++) {
             for (int j = 0; j < GRID_SIZE; j++) {
                 buttons[i][j] = new FakeButton();
@@ -145,18 +145,18 @@ public class StageOne extends StageController {
         BottomPanel.setBounds(0, 0, 1280, 120);
         layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
 
-        // MainPanel
-        JPanel MainPanel = new JPanel();
-        MainPanel.setBackground(new Color(255, 224, 224));
-        MainPanel.setBounds(0, 0, 1280, 720);
-        layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
-
+        
         // Add the layered pane to the frame
         layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
         this.paintAll(getGraphics());
-
+        
+        // MainPanel
+        JPanel MainPanel = new JPanel();
+        MainPanel.setBackground(new Color(48, 47, 46));
+        MainPanel.setBounds(0, 0, 1280, 720);
+        layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
     }
     static int makeTargetX() {
         return rand.nextInt(GRID_SIZE);
