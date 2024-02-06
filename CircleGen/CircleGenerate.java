@@ -8,10 +8,6 @@ import javax.swing.JFrame;
 
 import color_lab.Circle;
 
-// class JB extends JButton{
-//     boolean isSwap;
-// }
-
 public class CircleGenerate extends JFrame {
     public static ArrayList<FakeButton> CircleList = new ArrayList<>();
 
@@ -22,10 +18,6 @@ public class CircleGenerate extends JFrame {
     int randomBlue;
     boolean hasTarget = false;
     static int k =0;
-
-    // when create object make
-    // CircleGenerate(randomRed,randomGreen,randomBlue,getNCircle(level))
-    // then CircleGenerate.makerandomRange(level)
 
     public CircleGenerate(int randomRed, int randomGreen, int randomBlue, int n) {
         k++;
@@ -84,18 +76,6 @@ public class CircleGenerate extends JFrame {
     public ArrayList<FakeButton> getCircleList() {
         return CircleList;
     }
-
-    // static int makerandomRange(int level){
-    // if(level>0 && level <=5){
-    // return 10;
-    // }else if(level>5 && level<=15){
-    // return 5;
-    // }else if(level>15 && level<=25){
-    // return 2;
-    // }else{
-    // return 1;
-    // }
-    // }
 
     static void randomPlacement(ArrayList<FakeButton> CL) {
         Collections.shuffle(CL);
