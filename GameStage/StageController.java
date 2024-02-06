@@ -1,10 +1,13 @@
 package GameStage;
 
+import java.awt.Button;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.plaf.nimbus.State;
 
 // import javax.swing.JOptionPane;
@@ -14,7 +17,7 @@ import MainFrame.Lobby;
 import color_lab.Circle;
 
 
-public class StageController implements ActionListener {
+public class StageController extends JFrame implements ActionListener {
     static int ScoreLEVEL = 1;
     String score = Integer.toString(ScoreLEVEL);
 
@@ -38,9 +41,9 @@ public class StageController implements ActionListener {
         }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
             // StageOne.resetCircleGen();
-            StageOne.stageOne.setVisible(false);
-            StageOne.stageOne.dispose();
-            new StageOne();
+            StageOne.resetCircle();
+            this.paintAll(getGraphics());
+        
         }else if(((FakeButton)srcButton).isTarget()==false){
             ScoreLEVEL =0;
             BACKTOLOBBY_STATE_1();
