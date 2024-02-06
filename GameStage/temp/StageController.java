@@ -35,12 +35,15 @@ public class StageController implements ActionListener {
         }
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
-        }else if(StageOne.Buttons[TargetX][TargetY].getBackground()==srcButton.getBackground()){
+        }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
             // StageOne.resetCircleGen();
             StageOne.stageOne.setVisible(false);
             StageOne.stageOne.dispose();
             new StageOne();
+        }else if(((FakeButton)srcButton).isTarget()==false){
+            ScoreLEVEL =0;
+            BACKTOLOBBY_STATE_1();
         }
     }
 

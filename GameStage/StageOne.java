@@ -77,6 +77,7 @@ public class StageOne extends StageController {
                 buttons[i][j].setBorder(new RoundedBorder(10));
                 buttons[i][j].setPreferredSize(new Dimension(50,50));
                 if (i == TargetX && j == TargetY) {
+                    buttons[i][j].setTarget(true);
                     buttons[i][j].setBackground(new Color(randomRed+10,randomGreen+10,randomBlue));
                 }else{
                     buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
@@ -86,6 +87,7 @@ public class StageOne extends StageController {
 
             }
         }
+    
 
         // Hamberger-Menu
         bergerMenu.setIcon(new ImageIcon("img/menu.png"));
