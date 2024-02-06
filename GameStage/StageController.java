@@ -40,7 +40,8 @@ public class StageController extends JFrame implements ActionListener {
         
         }else if(((FakeButton)srcButton).isTarget()==false){
             ScoreLEVEL =0;
-            BACKTOLOBBY_STATE_1();
+            StageOne.stageOne.dispose();
+            new Lobby();
         }
     }
 
