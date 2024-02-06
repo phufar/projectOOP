@@ -4,14 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.plaf.nimbus.State;
 
 // import javax.swing.JOptionPane;
 import CircleGen.*;
-// import MainFrame.Lobby;
+import GameStage.MenuPopup;
 import MainFrame.Lobby;
 
 
-public class StageController implements ActionListener {
+public class StageController extends JFrame implements ActionListener {
     static int ScoreLEVEL = 1;
     String score = Integer.toString(ScoreLEVEL);
 
@@ -34,6 +35,7 @@ public class StageController implements ActionListener {
             BACKTOGAME();
         }else if(((FakeButton)srcButton).isTarget()==true){
             COUNT();
+            // StageOne.resetCircleGen();
             StageOne.stageOne.setVisible(false);
             StageOne.stageOne.dispose();
             new StageOne();
@@ -63,7 +65,12 @@ public class StageController implements ActionListener {
         MenuPopup.menuFrame.dispose();
         StageOne.stageOne.dispose();
 
-        new Lobby();
+        // create lobby menu
+        Lobby.frameLobby.setContentPane(new Lobby());
+        Lobby.frameLobby.revalidate();
+        Lobby.frameLobby.repaint();
+        
+
     }
 }
 

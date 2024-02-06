@@ -3,11 +3,10 @@ package GameStage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-// import java.awt.Graphics;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,34 +14,32 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
+import CircleGen.CircleGenerate;
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
 
 public class StageOne extends StageController {
-    static JFrame stageOne;
-    static JButton bergerMenu;
-    static JLabel scoreLabel;
-    static JLayeredPane layeredPane;
-
-    static StageController stageEvent;
-
+    static StageController stageEvent = new StageController();
+    static JButton bergerMenu = new JButton();
+    static JLayeredPane layeredPane = new JLayeredPane();
+    static JLabel scoreLabel = new JLabel();
+    // static JPanel gridPanel = new JPanel(new GridLayout(1, 4));
     public Random rand = new Random();
+    public static JFrame stageOne = new JFrame();
     public static ArrayList<Integer> randomColor = new ArrayList<>();
     
     private static final int GRID_SIZE = 5;
     public static boolean hasTarget = false;
-    public FakeButton[][] buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
-    public static JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
-    int randomRed;
-    int randomGreen;
-    int randomBlue;
-    public int TargetX;
-    public int TargetY;
+    public static FakeButton[][] buttons;
+    public static JPanel gridPanel;
+    private static int randomRed;
+    private static int randomGreen;
+    private static int randomBlue;
+    public static int TargetX;
+    public static int TargetY;
 
     public StageOne() {
 
-        JLayeredPane layeredPane = new JLayeredPane();
-        StageController stageEvent = new StageController();
         randomRed = rand.nextInt(255);
         randomGreen = rand.nextInt(255);
         randomBlue = rand.nextInt(255);
@@ -63,9 +60,9 @@ public class StageOne extends StageController {
         levelText.setForeground(new Color(58, 58, 58));
         levelText.setBounds(1070, 30, 175, 50);
         layeredPane.add(levelText, JLayeredPane.DEFAULT_LAYER);
-
+        
         // SCORE
-        scoreLabel = new JLabel();
+
         scoreLabel.setText("" + score);
         scoreLabel.setFont(new Font("Inter", Font.BOLD, 30));
         scoreLabel.setForeground(new Color(58, 58, 58));
@@ -80,7 +77,7 @@ public class StageOne extends StageController {
                 buttons[i][j].setPreferredSize(new Dimension(50,50));
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
-                    buttons[i][j].setBackground(new Color(randomRed+10,randomGreen+10,randomBlue));
+                    buttons[i][j].setBackground(new Color(randomRed+30,randomGreen+30,randomBlue+30));
                 }else{
                     buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
                 }
@@ -124,11 +121,48 @@ public class StageOne extends StageController {
 
     }
 
+    // public static void resetCircleGen() {
+    // randomColor.clear();
+    // randomColor.add((int) (Math.random() * 255));
+    // randomColor.add((int) (Math.random() * 255));
+    // randomColor.add((int) (Math.random() * 255));
+    // gridPanel.removeAll();
+    // FakeButtonGenList.removeAll(FakeButtonGenList);
+    // FakeButtonGenList.add(new CircleGenerate(randomColor.get(0),
+    // randomColor.get(1), randomColor.get(2), ScoreLEVEL));
+    // for (FakeButton b : FakeButtonGenList.get(0).getCircleList()) {
+    // // b.setBounds(stageOne.getWidth()/2, stageOne.getHeight()/2, 100, 100);
+    // b.addActionListener(stageEvent);
+    // gridPanel.add(b, JLayeredPane.DEFAULT_LAYER);
+    // // layeredPane.add(b);
+    // }
+    // //
+    // FakeButtonGenList.get(0).setAll(randomColor.get(0),randomColor.get(1),randomColor.get(2));
+    // }
     int makeTargetX() {
         return rand.nextInt(5);
     }
-
-    int makeTargetY() {
+    
+    static int makeTargetY() {
         return rand.nextInt(5);
+    }
+    
+    public static void resetCircle() {
+        buttons[TargetX][TargetY].setTarget(false);
+        TargetX = makeTargetX();
+        TargetY = makeTargetY();
+        randomRed = rand.nextInt(225);
+        randomGreen = rand.nextInt(225);
+        randomBlue = rand.nextInt(225);
+        for (int i = 0; i < GRID_SIZE; i++) {
+            for (int j = 0; j < GRID_SIZE; j++) {
+                if (i == TargetX && j == TargetY) {
+                    buttons[i][j].setTarget(true);
+                    buttons[i][j].setBackground(new Color(randomRed+30,randomGreen+30,randomBlue+30));
+                }else{
+                    buttons[i][j].setBackground(new Color(randomRed,randomGreen,randomBlue));
+                }
+            }
+        }
     }
 }
