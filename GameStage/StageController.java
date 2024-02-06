@@ -20,7 +20,6 @@ public class StageController extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e){
         JButton srcButton = (JButton) e.getSource();
-        
         if(srcButton.getText().equals("COUNT")){
             COUNT();
         }
@@ -33,12 +32,17 @@ public class StageController extends JFrame implements ActionListener {
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
         }
-        else if(((FakeButton)srcButton).isTarget()==true){
+        else if(srcButton.getText().equals("NEW GAME")) {
+            LosePopup.loseFrame.setVisible(false);
+            LosePopup.loseFrame.dispose();
+            new StageOne();
+        }
+        else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==true){
             COUNT();
             StageOne.resetCircle();
             this.paintAll(getGraphics());
         }
-        else if(((FakeButton)srcButton).isTarget()==false){
+        else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false){
             lose();
         }
     }
