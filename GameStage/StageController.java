@@ -64,9 +64,15 @@ public class StageController implements ActionListener {
 
     private void BACKTOLOBBY_STATE_1(){
         System.out.println("YES!!");
+
+        // remove menu bar if pressed
         MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
 
+        // remove stage 1 tab
+        StageOne.stageOne.dispose();
+
+        // create lobby menu
         Lobby.frameLobby.setContentPane(new Lobby());
         Lobby.frameLobby.revalidate();
         Lobby.frameLobby.repaint();
