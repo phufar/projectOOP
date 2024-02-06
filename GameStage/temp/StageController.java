@@ -35,7 +35,7 @@ public class StageController implements ActionListener {
         }
         else if(srcButton.getText().equals("BACK")){
             BACKTOGAME();
-        }else if(((FakeButton)srcButton).isTarget()){
+        }else if(StageOne.Buttons[TargetX][TargetY].getBackground()==srcButton.getBackground()){
             COUNT();
             // StageOne.resetCircleGen();
             StageOne.stageOne.setVisible(false);
