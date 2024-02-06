@@ -139,15 +139,14 @@ public class StageOne extends StageController {
         layeredPane.add(gridPanel, JLayeredPane.BOTTOM_ALIGNMENT);
         stageOne.getContentPane().add(layeredPane);
         stageOne.setVisible(true);
-        this.paintAll(getGraphics());
 
     }
     static int makeTargetX() {
-        return rand.nextInt(5);
+        return rand.nextInt(GRID_SIZE);
     }
     
     static int makeTargetY() {
-        return rand.nextInt(5);
+        return rand.nextInt(GRID_SIZE);
     }
     
     public static void resetCircle() {

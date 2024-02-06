@@ -39,7 +39,7 @@ public class StageController extends JFrame implements ActionListener {
             this.paintAll(getGraphics());
         
         }else if(((FakeButton)srcButton).isTarget()==false){
-            ScoreLEVEL =0;
+            ScoreLEVEL = 0;
             BACKTOLOBBY_STATE_1();
         }
     }
@@ -63,8 +63,10 @@ public class StageController extends JFrame implements ActionListener {
         System.out.println("YES!!");
 
         // remove menu bar if pressed
-        MenuPopup.menuFrame.setVisible(false);
-        MenuPopup.menuFrame.dispose();
+        if (MenuPopup.menuFrame != null) {
+            MenuPopup.menuFrame.setVisible(false);
+            MenuPopup.menuFrame.dispose();
+        }
 
         // remove stage 1 tab
         StageOne.stageOne.dispose();
