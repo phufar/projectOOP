@@ -37,7 +37,7 @@ public class StageController extends JFrame implements ActionListener {
             LosePopup.losePanel = null;
             LosePopup.loseFrame.dispose();
             StageOne.stageOne.dispose();
-            new StageOne();
+            new Lobby();
         }
         else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==true){
             COUNT();
