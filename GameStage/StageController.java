@@ -2,8 +2,11 @@ package GameStage;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
-
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -41,11 +44,13 @@ public class StageController extends JFrame implements ActionListener {
             new Lobby();
         }
         else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==true){
+            playSound("img/pop2-1.wav");
             COUNT();
             StageOne.resetCircle();
             lobbyEvent.counter = 1000;
         }
         else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)){
+            playSound("img/pop2-1.wav");
             lobbyEvent.counter = 0;
         }
     }
@@ -92,6 +97,18 @@ public class StageController extends JFrame implements ActionListener {
             scoreMax = Integer.toString(ScoreLEVEL);
         }
         System.out.println(scoreMax);
+    }
+    public static void playSound(String filename) {
+        try {
+            File soundFile = new File(filename);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
     }
     
     

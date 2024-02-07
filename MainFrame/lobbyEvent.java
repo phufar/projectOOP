@@ -21,15 +21,19 @@ public class lobbyEvent implements ActionListener {
         JButton srcButton = (JButton) e.getSource(); 
 
         if (srcButton.getText().equals("START")) {
+            StageController.playSound("img/pop2-1.wav");
             START();
         } 
         else if (srcButton.getText().equals("OPTION")) {
+            StageController.playSound("img/pop2-1.wav");
             OPTION();
         } 
         else if (srcButton.getText().equals("QUIT")) {
+            StageController.playSound("img/pop2-1.wav");
             QUIT();
         }
         else if(srcButton.getText().equals("BACK")){
+            StageController.playSound("img/pop2-1.wav");
             BACK();
         }
     }
