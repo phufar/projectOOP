@@ -113,7 +113,7 @@ public class StageOne extends StageController {
         }
 
         // Hamberger-Menu
-        bergerMenu.setIcon(new ImageIcon("./img/menu-assets/menu.png"));
+        bergerMenu.setIcon(new ImageIcon("img/menu.png"));
         bergerMenu.setBounds(30, 30, 50, 50);
         bergerMenu.setBorder(null);
         bergerMenu.setBorderPainted(false);
@@ -132,7 +132,7 @@ public class StageOne extends StageController {
         pgBAR.setValue((int) lobbyEvent.TimeCount);
         pgBAR.setBounds(390, 50, 500, 15);
         pgBAR.setForeground(Color.white);
-        pgBAR.setBackground(new Color(48, 47, 46));
+        pgBAR.setBackground(new Color(44, 44, 44));
         pgBAR.setBorderPainted(false);
         layeredPane.add(pgBAR, JLayeredPane.DEFAULT_LAYER);
 
