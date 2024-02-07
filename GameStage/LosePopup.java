@@ -16,12 +16,12 @@ public class LosePopup extends StageController{
     static JLabel endScore;
     static JLabel TextOver_LEVEL;
     static JButton newGame;//
-    static JLayeredPane layer = new JLayeredPane();
+    static JLayeredPane layer;
     
     
     static StageController stageEvent;
     public LosePopup(){
-
+        layer = new JLayeredPane();
         stageEvent = new StageController();
         //frame setup
         loseFrame = new JFrame();
@@ -65,6 +65,7 @@ public class LosePopup extends StageController{
 
         loseFrame.getContentPane().add(layer);
         loseFrame.setVisible(true);
+        System.out.println(endScore.getText());
     }
 
 
