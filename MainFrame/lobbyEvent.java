@@ -37,6 +37,7 @@ public class lobbyEvent implements ActionListener {
     private void START() {
         Lobby.frameLobby.dispose();
         new StageOne();
+        lobbyEvent.counter = 1000;
         SliderTransition();
     }
 
