@@ -65,6 +65,7 @@ public class StageOne extends StageController {
     
     public StageOne() {
         //set up variable
+        ScoreLEVEL =0;
         rand = new Random();
         buttons = null;
         randomRed = rand.nextInt(225);

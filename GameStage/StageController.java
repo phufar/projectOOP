@@ -79,6 +79,7 @@ public class StageController extends JFrame implements ActionListener {
 
     private void lose(){
         maxScoreCheck();
+        ScoreLEVEL = 0;
         new LosePopup();
         ScoreLEVEL = 1;
         score = Integer.toString(ScoreLEVEL);
