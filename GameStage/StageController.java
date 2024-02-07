@@ -71,7 +71,7 @@ public class StageController extends JFrame implements ActionListener {
     }
 
     private void lose(){
-        ScoreLEVEL =0;
+        ScoreLEVEL = 0;
         new LosePopup();
         LosePopup.loseFrame.setVisible(true);
     }
