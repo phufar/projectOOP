@@ -49,13 +49,10 @@ public class StageController extends JFrame implements ActionListener {
             StageOne.resetCircle();
             lobbyEvent.counter = lobbyEvent.TimeCount;
         }
-        else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)|| StageOne.Time == 0){
-            lobbyEvent.timer.cancel();
-            lose();
-        }   
         else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)){
             playSound("img/pop2-1.wav");
-            lobbyEvent.counter = 0;
+            lobbyEvent.timer.cancel();
+            lose();
         }
     }
 
