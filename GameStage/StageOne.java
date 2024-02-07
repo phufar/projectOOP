@@ -45,6 +45,7 @@ public class StageOne extends StageController {
     public static int TargetX;
     public static int TargetY;
     public static int Time = 10;
+    public static int set;
 
     public StageOne() {
 
@@ -52,6 +53,7 @@ public class StageOne extends StageController {
         ScoreLEVEL = 0;
         rand = new Random();
         buttons = null;
+        set = rand.nextInt(2);
         randomRed = rand.nextInt(225);
         randomGreen = rand.nextInt(225);
         randomBlue = rand.nextInt(225);
@@ -97,14 +99,26 @@ public class StageOne extends StageController {
                 buttons[i][j].setPreferredSize(new Dimension(20, 20));
                 buttons[i][j].setBorder(new RoundedBorder(20));
                 buttons[i][j].setContentAreaFilled(false);
-                if (i == TargetX && j == TargetY) {
-                    buttons[i][j].setTarget(true);
-                    buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
-                            randomBlue + SetRandomRange()));
-                    System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
-                            + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
-                } else {
-                    buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
+                if(set==0){
+                    if (i == TargetX && j == TargetY) {
+                        buttons[i][j].setTarget(true);
+                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
+                                randomBlue + SetRandomRange()));
+                        System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
+                                + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                    } else {
+                        buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
+                    }
+                }else{
+                    if (i == TargetX && j == TargetY) {
+                        buttons[i][j].setTarget(true);
+                        buttons[i][j].setBackground(new Color(randomRed, randomGreen,
+                                randomBlue));
+                        System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
+                                + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                    } else {
+                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(), randomBlue + SetRandomRange()));
+                    }
                 }
                 buttons[i][j].addActionListener(stageEvent);
                 buttons[i][j].addMouseListener(mouseEvent);
@@ -178,6 +192,7 @@ public class StageOne extends StageController {
     // Reset New Circle
     public static void resetCircle() {
         buttons[TargetX][TargetY].setTarget(false);
+        set = rand.nextInt(2);
         randomRed = rand.nextInt(225);
         randomGreen = rand.nextInt(225);
         randomBlue = rand.nextInt(225);
@@ -185,14 +200,26 @@ public class StageOne extends StageController {
         TargetY = makeTargetY();
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
-                if (i == TargetX && j == TargetY) {
-                    buttons[i][j].setTarget(true);
-                    buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
-                            randomBlue + SetRandomRange()));
-                    System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
-                            + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
-                } else {
-                    buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
+                if(set==0){
+                    if (i == TargetX && j == TargetY) {
+                        buttons[i][j].setTarget(true);
+                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
+                                randomBlue + SetRandomRange()));
+                        System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
+                                + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                    } else {
+                        buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
+                    }
+                }else{
+                    if (i == TargetX && j == TargetY) {
+                        buttons[i][j].setTarget(true);
+                        buttons[i][j].setBackground(new Color(randomRed, randomGreen,
+                                randomBlue));
+                        System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
+                                + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                    } else {
+                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(), randomBlue + SetRandomRange()));
+                    }
                 }
             }
         }
