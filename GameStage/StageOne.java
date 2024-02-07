@@ -16,6 +16,7 @@ import javax.swing.JProgressBar;
 
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
+import MainFrame.lobbyEvent;
 
 public class StageOne extends StageController {
     static MouseController mouseEvent;
@@ -153,8 +154,8 @@ public class StageOne extends StageController {
         layeredPane.add(panelScoreBoard, JLayeredPane.DEFAULT_LAYER);
 
         //progressBar
-        pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, 1000);
-        pgBAR.setValue(1000);
+        pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, (int)lobbyEvent.TimeCount);
+        pgBAR.setValue((int)lobbyEvent.TimeCount);
         pgBAR.setBounds(390,50,500,15);
         layeredPane.add(pgBAR,JLayeredPane.DEFAULT_LAYER);
 
