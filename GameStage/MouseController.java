@@ -17,7 +17,7 @@ public class MouseController implements MouseListener {
         // Color c = srcButton.getBackground();
         // srcButton.setBackground(c);
         srcButton.setForeground(Color.WHITE);
-        srcButton.setBorder(new RoundedBorder(20));
+        srcButton.setBorder(new RoundedBorder.RoundedBorderHover(20));
         // srcButton.setBorder(BorderFactory.createEtchedBorder(1));
         
     }  
@@ -27,6 +27,7 @@ public class MouseController implements MouseListener {
         // srcButton.setBorderPainted(true);
         srcButton.setForeground(null);
         srcButton.setBorder(new RoundedBorder(20));
+        // srcButton.setBorder(BorderFactory.createBevelBorder(1));
     }  
     public void mousePressed(MouseEvent e) {  
     }  
