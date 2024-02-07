@@ -45,32 +45,6 @@ public class StageOne extends StageController {
     public static int TargetY;
     public static int Time = 10;
 
-    static void setGRID_SIZE() {
-        if (ScoreLEVEL < 5) {
-            GRID_SIZE = 2;
-        } else if (ScoreLEVEL < 15) {
-            GRID_SIZE = 3;
-        } else if (ScoreLEVEL < 25) {
-            GRID_SIZE = 4;
-        } else {
-            GRID_SIZE = 5;
-        }
-    }
-
-    static int SetRandomRange() {
-        if (ScoreLEVEL < 5) {
-            return 30;
-        } else if (ScoreLEVEL < 15) {
-            return 20;
-        } else if (ScoreLEVEL < 25) {
-            return 15;
-        } else if (ScoreLEVEL < 30) {
-            return 8;
-        } else {
-            return 5;
-        }
-    }
-
     public StageOne() {
 
         //set up variable XD
@@ -156,6 +130,9 @@ public class StageOne extends StageController {
         pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, 1000);
         pgBAR.setValue(1000);
         pgBAR.setBounds(390,50,500,15);
+        pgBAR.setForeground(Color.white);
+        pgBAR.setBackground(new Color(48, 47, 46));
+        pgBAR.setBorderPainted(false);
         layeredPane.add(pgBAR,JLayeredPane.DEFAULT_LAYER);
 
         // TopPanel
@@ -185,9 +162,18 @@ public class StageOne extends StageController {
         return rand.nextInt(GRID_SIZE);
     }
 
-    static void ResetTime() {
-        Time = 10;
+    static int SetRandomRange() {
+        if (ScoreLEVEL < 5) {
+            return 30;
+        } else if (ScoreLEVEL < 15) {
+            return 20;
+        } else if (ScoreLEVEL < 25) {
+            return 15;
+        } else{
+            return 8;
+        }
     }
+
 
     // Reset New Circle
     public static void resetCircle() {
