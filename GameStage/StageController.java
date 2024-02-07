@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-// import javax.swing.JOptionPane;
 import CircleGen.*;
 import MainFrame.Lobby;
 
@@ -43,7 +42,7 @@ public class StageController extends JFrame implements ActionListener {
             COUNT();
             StageOne.resetCircle();
         }
-        else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false){
+        else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)|| StageOne.Time == 0){
             lose();
         }
     }

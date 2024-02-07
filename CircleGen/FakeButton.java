@@ -1,12 +1,15 @@
 package CircleGen;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
-
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 
 public class FakeButton extends JButton{
     boolean target = false;
@@ -39,3 +42,4 @@ public class FakeButton extends JButton{
     }
 
 }
+
