@@ -1,11 +1,6 @@
 package GameStage;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.*;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.border.Border;
 
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
