@@ -99,17 +99,18 @@ public class StageOne extends StageController {
                 buttons[i][j].setPreferredSize(new Dimension(20, 20));
                 buttons[i][j].setBorder(new RoundedBorder(20));
                 buttons[i][j].setContentAreaFilled(false);
-                if(set==0){
+                if (set == 0) {
                     if (i == TargetX && j == TargetY) {
                         buttons[i][j].setTarget(true);
-                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
-                                randomBlue + SetRandomRange()));
+                        buttons[i][j]
+                                .setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
+                                        randomBlue + SetRandomRange()));
                         System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
                                 + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
                     } else {
                         buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
                     }
-                }else{
+                } else {
                     if (i == TargetX && j == TargetY) {
                         buttons[i][j].setTarget(true);
                         buttons[i][j].setBackground(new Color(randomRed, randomGreen,
@@ -117,7 +118,8 @@ public class StageOne extends StageController {
                         System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
                                 + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
                     } else {
-                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(), randomBlue + SetRandomRange()));
+                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(),
+                                randomGreen + SetRandomRange(), randomBlue + SetRandomRange()));
                     }
                 }
                 buttons[i][j].addActionListener(stageEvent);
@@ -200,17 +202,18 @@ public class StageOne extends StageController {
         TargetY = makeTargetY();
         for (int i = 0; i < buttons.length; i++) {
             for (int j = 0; j < buttons[i].length; j++) {
-                if(set==0){
+                if (set == 0) {
                     if (i == TargetX && j == TargetY) {
                         buttons[i][j].setTarget(true);
-                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
-                                randomBlue + SetRandomRange()));
+                        buttons[i][j]
+                                .setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
+                                        randomBlue + SetRandomRange()));
                         System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
                                 + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
                     } else {
                         buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
                     }
-                }else{
+                } else {
                     if (i == TargetX && j == TargetY) {
                         buttons[i][j].setTarget(true);
                         buttons[i][j].setBackground(new Color(randomRed, randomGreen,
@@ -218,7 +221,8 @@ public class StageOne extends StageController {
                         System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
                                 + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
                     } else {
-                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(), randomBlue + SetRandomRange()));
+                        buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(),
+                                randomGreen + SetRandomRange(), randomBlue + SetRandomRange()));
                     }
                 }
             }
