@@ -1,20 +1,29 @@
 package MainFrame;
 
 import java.awt.BorderLayout;
+import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.Font;
+// import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class Option extends JFrame {
+public class Option{
 
     public static JFrame frameOption;
+    static JCheckBox checkBoxMusic;
+
+    static Checkbox cBox = new Checkbox();
+    static MusicControl musicControl;
+    
 
     public Option(){
+        MusicControl musicControl = new MusicControl();
         // Frame
         frameOption = new JFrame();
         frameOption.setTitle("BLIND");
@@ -52,6 +61,14 @@ public class Option extends JFrame {
         // Add a button to Frame
         layeredPane.add(BACK, JLayeredPane.DEFAULT_LAYER);
 
+        //Add CheckBox
+        checkBoxMusic = new JCheckBox("Background Music");
+        checkBoxMusic.setBounds(500, 500, 100, 100);
+        checkBoxMusic.setContentAreaFilled(false);
+        checkBoxMusic.setBorder(null);
+        checkBoxMusic.addActionListener(musicControl);
+        layeredPane.add(checkBoxMusic,JLayeredPane.DEFAULT_LAYER);
+
         // Title BLIND
         JLabel nameTitle = new JLabel("OPTION");
         nameTitle.setFont(new Font("Inter", Font.BOLD, 50));
@@ -83,3 +100,5 @@ public class Option extends JFrame {
         frameOption.setVisible(true);
     }
 }
+
+

@@ -13,13 +13,15 @@ import javax.swing.JButton;
 import GameStage.StageController;
 import GameStage.StageOne;
 
-public class lobbyEvent implements ActionListener {
+public class lobbyEvent  implements ActionListener {
     public static double TimeCount = 3000;
     public static double counter = TimeCount;
     public static Timer timer;
     @Override
     public void actionPerformed(ActionEvent e) {
+
         JButton srcButton = (JButton) e.getSource(); 
+
 
         if (srcButton.getText().equals("START")) {
             StageController.playSound("img/pop2-1.wav");
@@ -37,6 +39,7 @@ public class lobbyEvent implements ActionListener {
             StageController.playSound("img/pop2-1.wav");
             BACK();
         }
+        
     }
 
     private void START() {
