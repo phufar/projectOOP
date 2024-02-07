@@ -67,14 +67,17 @@ public class StageController extends JFrame implements ActionListener {
         System.out.println("ScoreLEVEL: "+ScoreLEVEL);
     }
     private void MENUPOPUP(){
+        StageController.playSound("img/pop2-1.wav");
         new MenuPopup();
     }
     private void BACKTOGAME(){
+        StageController.playSound("img/pop2-1.wav");
         MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
     }
 
     private void BACKTOLOBBY_STATE_1(){
+        StageController.playSound("img/pop2-1.wav");
         System.out.println("YES!!");
         maxScoreCheck();
         ScoreLEVEL = 1;
