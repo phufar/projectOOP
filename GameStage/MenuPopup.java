@@ -10,8 +10,7 @@ import javax.swing.JPanel;
 
 public class MenuPopup extends StageController {
 
-    
-    //Btn-Element
+    // Btn-Element
     static JFrame menuFrame;
     static JButton MenuLobby;
     static JButton BACTOGAME;
@@ -21,7 +20,7 @@ public class MenuPopup extends StageController {
     public MenuPopup() {
 
         StageController stageEvent = new StageController();
-        
+
         menuFrame = new JFrame();
         menuFrame.setSize(500, 500);
         menuFrame.setTitle("MENUFRAME");
@@ -35,29 +34,29 @@ public class MenuPopup extends StageController {
         // Add Button
         MenuLobby = new JButton("LOBBY");
         MenuLobby.setBounds(150, 120, 200, 80);
-        MenuLobby.setForeground(Color.WHITE);
+        MenuLobby.setForeground(new Color(60, 60, 60));
         MenuLobby.setFont(new Font("Inter", Font.BOLD, 30));
         MenuLobby.setBorder(null);
         MenuLobby.setFocusable(false);
-        MenuLobby.setBackground(new Color(147,147,147));
+        MenuLobby.setBackground(new Color(217, 217, 217));
         MenuLobby.addActionListener(stageEvent);
         layeredPane.add(MenuLobby, JLayeredPane.DEFAULT_LAYER);
 
         BACTOGAME = new JButton("BACK");
         BACTOGAME.setFont(new Font("Inter", Font.BOLD, 30));
-        BACTOGAME.setForeground(Color.WHITE);
+        BACTOGAME.setForeground(new Color(60, 60, 60));
         BACTOGAME.setBounds(150, 260, 200, 80);
         BACTOGAME.setBorder(null);
         BACTOGAME.setFocusable(false);
-        BACTOGAME.setBackground(new Color(147,147,147));
+        BACTOGAME.setBackground(new Color(217, 217, 217));
         layeredPane.add(BACTOGAME, JLayeredPane.DEFAULT_LAYER);
-        
+
         // MainPanel
         JPanel MainMenuPanel = new JPanel();
-        MainMenuPanel.setBackground(new Color(217, 217, 217));
+        MainMenuPanel.setBackground(new Color(60, 60, 60));
         MainMenuPanel.setBounds(0, 0, 500, 500);
         layeredPane.add(MainMenuPanel, JLayeredPane.DEFAULT_LAYER);
-        
+
         BACTOGAME.addActionListener(stageEvent);
 
         menuFrame.getContentPane().add(layeredPane);

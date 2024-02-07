@@ -33,33 +33,36 @@ public class LosePopup extends StageController{
         gameover = new JLabel("GAME OVER");
         gameover.setBounds(155, 50, 200, 80);
         gameover.setFont(new Font("Inter", Font.BOLD, 30));
+        gameover.setForeground(new Color(217,217,217));
         layer.add(gameover, JLayeredPane.DEFAULT_LAYER);
         
         TextOver_LEVEL = new JLabel("HIGH LEVEL:");
         TextOver_LEVEL.setBounds(100, 170, 200, 80);
         TextOver_LEVEL.setFont(new Font("Inter", Font.BOLD, 30));
+        TextOver_LEVEL.setForeground(new Color(217,217,217));
         layer.add(TextOver_LEVEL, JLayeredPane.DEFAULT_LAYER);
 
         endScore = new JLabel();
         endScore.setBounds(310, 170, 200, 80);
         endScore.setFont(new Font("Inter", Font.BOLD, 30));
         endScore.setText(StageController.scoreMax);
+        endScore.setForeground(new Color(217,217,217));
         layer.add(endScore, JLayeredPane.DEFAULT_LAYER);
 
         //BTN
         newGame = new JButton("NEW GAME");
         newGame.setFont(new Font("Inter", Font.BOLD, 30));
-        newGame.setForeground(Color.WHITE);
+        newGame.setForeground(new Color(60,60,60));
         newGame.setBounds(145, 320, 200, 80);
         newGame.setBorder(null);
         newGame.setFocusable(false);
-        newGame.setBackground(new Color(147,147,147));
+        newGame.setBackground(new Color(217,217,217));
         newGame.addActionListener(stageEvent);
         layer.add(newGame, JLayeredPane.DEFAULT_LAYER);
 
         //losePanel
         losePanel = new JPanel();
-        losePanel.setBackground(new Color(217, 217, 217));
+        losePanel.setBackground(new Color(55,55,55));
         losePanel.setBounds(0, 0, 500, 500);
         layer.add(losePanel, JLayeredPane.DEFAULT_LAYER);
 
