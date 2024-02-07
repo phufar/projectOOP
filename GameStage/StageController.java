@@ -47,7 +47,6 @@ public class StageController extends JFrame implements ActionListener {
         }
         else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)|| StageOne.Time == 0){
             lobbyEvent.counter = 0;
-            lose();
         }
     }
 
