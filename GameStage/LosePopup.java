@@ -27,6 +27,7 @@ public class LosePopup extends StageController{
         loseFrame.setSize(500,500);
         loseFrame.setTitle("GAMEOVER");
         loseFrame.setLocationRelativeTo(null);
+        loseFrame.setUndecorated(true);
         loseFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         gameover = new JLabel("GAME OVER");
@@ -67,19 +68,3 @@ public class LosePopup extends StageController{
         System.out.println(endScore.getText());
     }
 }
-
-// class newdsadsad implements ActionListener {
-
-//     @Override
-//     public void actionPerformed(ActionEvent e) {
-
-//         JButton src = (JButton) e.getSource();
-
-//         if(src == LosePopup.newGame){
-//             LosePopup.loseFrame.setVisible(false);
-//             StageOne.stageOne.dispose();
-//             new Lobby();
-//         }
-//     }
-    
-// }
