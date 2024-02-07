@@ -16,6 +16,7 @@ import javax.swing.JProgressBar;
 
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
+import MainFrame.lobbyEvent;
 
 public class StageOne extends StageController {
     static MouseController mouseEvent;
@@ -24,7 +25,7 @@ public class StageOne extends StageController {
     static JLayeredPane layeredPane;
     static JLabel scoreLabel;
 
-    //BAR TIME
+    // BAR TIME
     public static JProgressBar pgBAR;
 
     // BTN CHECK GAME OVER
@@ -47,8 +48,8 @@ public class StageOne extends StageController {
 
     public StageOne() {
 
-        //set up variable XD
-        ScoreLEVEL =0;
+        // set up variable XD
+        ScoreLEVEL = 0;
         rand = new Random();
         buttons = null;
         randomRed = rand.nextInt(225);
@@ -99,9 +100,9 @@ public class StageOne extends StageController {
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
                     buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
-                    randomBlue + SetRandomRange()));
+                            randomBlue + SetRandomRange()));
                     System.out.println(SetRandomRange() + " " + (int) (randomRed + SetRandomRange()) + " "
-                    + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
+                            + (int) (randomGreen + SetRandomRange()) + " " + (int) (randomBlue + SetRandomRange()));
                 } else {
                     buttons[i][j].setBackground(new Color(randomRed, randomGreen, randomBlue));
                 }
@@ -112,7 +113,7 @@ public class StageOne extends StageController {
         }
 
         // Hamberger-Menu
-        bergerMenu.setIcon(new ImageIcon("img/menu.png"));
+        bergerMenu.setIcon(new ImageIcon("./img/menu-assets/menu.png"));
         bergerMenu.setBounds(30, 30, 50, 50);
         bergerMenu.setBorder(null);
         bergerMenu.setBorderPainted(false);
@@ -126,14 +127,14 @@ public class StageOne extends StageController {
         panelScoreBoard.setBounds(1060, 30, 175, 50);
         layeredPane.add(panelScoreBoard, JLayeredPane.DEFAULT_LAYER);
 
-        //progressBar
-        pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, 1000);
-        pgBAR.setValue(1000);
-        pgBAR.setBounds(390,50,500,15);
+        // progressBar
+        pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, (int) lobbyEvent.TimeCount);
+        pgBAR.setValue((int) lobbyEvent.TimeCount);
+        pgBAR.setBounds(390, 50, 500, 15);
         pgBAR.setForeground(Color.white);
         pgBAR.setBackground(new Color(48, 47, 46));
         pgBAR.setBorderPainted(false);
-        layeredPane.add(pgBAR,JLayeredPane.DEFAULT_LAYER);
+        layeredPane.add(pgBAR, JLayeredPane.DEFAULT_LAYER);
 
         // TopPanel
         JPanel BottomPanel = new JPanel();
@@ -169,11 +170,10 @@ public class StageOne extends StageController {
             return 20;
         } else if (ScoreLEVEL < 25) {
             return 15;
-        } else{
+        } else {
             return 8;
         }
     }
-
 
     // Reset New Circle
     public static void resetCircle() {
