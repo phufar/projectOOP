@@ -68,7 +68,7 @@ public class StageOne extends StageController {
     }
 
     public StageOne() {
-        //set up variable
+        //set up variable XD
         ScoreLEVEL =0;
         rand = new Random();
         buttons = null;
