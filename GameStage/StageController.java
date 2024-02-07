@@ -32,14 +32,16 @@ public class StageController extends JFrame implements ActionListener {
             BACKTOGAME();
         }
         else if(srcButton.getText().equals("NEW GAME")) {
-            LosePopup.loseFrame.setVisible(false);
+            // LosePopup.loseFrame.setVisible(false);
+            LosePopup.endScore = null;
+            LosePopup.losePanel = null;
             LosePopup.loseFrame.dispose();
+            StageOne.stageOne.dispose();
             new StageOne();
         }
         else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==true){
             COUNT();
             StageOne.resetCircle();
-            this.paintAll(getGraphics());
         }
         else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false){
             lose();
@@ -63,7 +65,9 @@ public class StageController extends JFrame implements ActionListener {
 
     private void BACKTOLOBBY_STATE_1(){
         System.out.println("YES!!");
-
+        maxScoreCheck();
+        ScoreLEVEL = 1;
+        score = Integer.toString(ScoreLEVEL);
         // remove menu bar if pressed
         MenuPopup.menuFrame.setVisible(false);
         MenuPopup.menuFrame.dispose();
@@ -74,12 +78,17 @@ public class StageController extends JFrame implements ActionListener {
     }
 
     private void lose(){
+        maxScoreCheck();
+        new LosePopup();
+        ScoreLEVEL = 1;
+        score = Integer.toString(ScoreLEVEL);
+    }
+
+    private void maxScoreCheck() {
         if (Integer.parseInt(scoreMax) < ScoreLEVEL) {
             scoreMax = Integer.toString(ScoreLEVEL);
         }
-        ScoreLEVEL =0;
-        new LosePopup();
-        LosePopup.loseFrame.setVisible(true);
+        System.out.println(scoreMax);
     }
    
 }
