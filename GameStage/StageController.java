@@ -27,15 +27,19 @@ public class StageController extends JFrame implements ActionListener {
             COUNT();
         }
         else if(srcButton == StageOne.bergerMenu){
+            playSound("img/pop2-1.wav");
             MENUPOPUP();
         }
         else if(srcButton.getText().equals("LOBBY")){
+            playSound("img/pop2-1.wav");
             BACKTOLOBBY_STATE_1();
         }
         else if(srcButton.getText().equals("BACK")){
+            playSound("img/pop2-1.wav");
             BACKTOGAME();
         }
         else if(srcButton.getText().equals("NEW GAME")) {
+            playSound("img/pop2-1.wav");
             // LosePopup.loseFrame.setVisible(false);
             LosePopup.endScore = null;
             LosePopup.losePanel = null;
