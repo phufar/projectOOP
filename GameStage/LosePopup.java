@@ -18,7 +18,6 @@ public class LosePopup extends StageController{
     static JButton newGame;//
     static JLayeredPane layer;
     
-    
     static StageController stageEvent;
     public LosePopup(){
         layer = new JLayeredPane();
@@ -67,8 +66,6 @@ public class LosePopup extends StageController{
         loseFrame.setVisible(true);
         System.out.println(endScore.getText());
     }
-
-
 }
 
 // class newdsadsad implements ActionListener {
