@@ -31,6 +31,7 @@ public class StageController extends JFrame implements ActionListener {
             MENUPOPUP();
         }
         else if(srcButton.getText().equals("LOBBY")){
+            lobbyEvent.timer.cancel();
             playSound("img/pop2-1.wav");
             BACKTOLOBBY_STATE_1();
         }
@@ -79,7 +80,7 @@ public class StageController extends JFrame implements ActionListener {
 
     private void BACKTOLOBBY_STATE_1(){
         StageController.playSound("img/pop2-1.wav");
-        System.out.println("YES!!");
+        System.out.println("YES!!"); 
         maxScoreCheck();
         ScoreLEVEL = 1;
         score = Integer.toString(ScoreLEVEL);
