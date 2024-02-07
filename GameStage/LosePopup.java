@@ -40,7 +40,7 @@ public class LosePopup extends StageController{
         TextOver_LEVEL.setFont(new Font("Inter", Font.BOLD, 30));
         layer.add(TextOver_LEVEL, JLayeredPane.DEFAULT_LAYER);
 
-        endScore = new JLabel(StageController.score);
+        endScore = new JLabel(StageController.scoreMax);
         endScore.setBounds(310, 170, 200, 80);
         endScore.setFont(new Font("Inter", Font.BOLD, 30));
         layer.add(endScore, JLayeredPane.DEFAULT_LAYER);

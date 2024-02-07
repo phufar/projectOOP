@@ -13,6 +13,7 @@ import MainFrame.Lobby;
 
 public class StageController extends JFrame implements ActionListener {
     static int ScoreLEVEL = 1;
+    static String scoreMax = Integer.toString(ScoreLEVEL);
     static String score = Integer.toString(ScoreLEVEL);
 
     @Override
@@ -73,6 +74,9 @@ public class StageController extends JFrame implements ActionListener {
     }
 
     private void lose(){
+        if (Integer.parseInt(scoreMax) < ScoreLEVEL) {
+            scoreMax = Integer.toString(ScoreLEVEL);
+        }
         ScoreLEVEL =0;
         new LosePopup();
         LosePopup.loseFrame.setVisible(true);

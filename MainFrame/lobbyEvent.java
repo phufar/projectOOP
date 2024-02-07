@@ -33,7 +33,7 @@ public class lobbyEvent implements ActionListener {
     private void START() {
         Lobby.frameLobby.dispose();
         new StageOne();
-        new LosePopup();
+        // new LosePopup();
     }
 
     private void OPTION() {
