@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 
 import CircleGen.FakeButton;
 import CircleGen.RoundedBorder;
@@ -22,6 +23,9 @@ public class StageOne extends StageController {
     static JButton bergerMenu;
     static JLayeredPane layeredPane;
     static JLabel scoreLabel;
+
+    //BAR TIME
+    static JProgressBar pgBAR;
 
     // BTN CHECK GAME OVER
     static JButton gameover;
@@ -147,10 +151,16 @@ public class StageOne extends StageController {
         panelScoreBoard.setBounds(1060, 30, 175, 50);
         layeredPane.add(panelScoreBoard, JLayeredPane.DEFAULT_LAYER);
 
+        //progressBar
+        pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, 1000);
+        pgBAR.setValue(1000);
+        pgBAR.setBounds(100,300,500,50);
+        layeredPane.add(pgBAR,JLayeredPane.DEFAULT_LAYER);
+
         // TopPanel
         JPanel BottomPanel = new JPanel();
         BottomPanel.setBackground(new Color(44, 44, 44));
-        BottomPanel.setBounds(0, 0, 1280, 120);
+        BottomPanel.setBounds(400, 30, 1280, 120);
         layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
 
         // Add the layered pane to the frame
