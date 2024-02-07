@@ -14,9 +14,8 @@ import GameStage.StageController;
 import GameStage.StageOne;
 
 public class lobbyEvent implements ActionListener {
-    public static double TimeCount = 3000;
+    public static double TimeCount = 1000;
     public static double counter = TimeCount;
-    public static Timer timer;
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton srcButton = (JButton) e.getSource(); 
@@ -38,7 +37,7 @@ public class lobbyEvent implements ActionListener {
     private void START() {
         Lobby.frameLobby.dispose();
         new StageOne();
-        lobbyEvent.counter = TimeCount;
+        lobbyEvent.counter = 1000;
         SliderTransition();
     }
 
@@ -54,20 +53,20 @@ public class lobbyEvent implements ActionListener {
 
     public static void SliderTransition(){
         
-        timer = new Timer();
+        Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             
             public void run(){
                 // System.out.println((int)counter);
                 StageOne.pgBAR.setValue((int)counter);
-                counter-=1;
+                counter-=2;
                 if(counter < 0){
                     System.out.println("Stop");
                     timer.cancel();
                     StageController.lose();
                 }
             }
-        }, 0, 5);
+        }, 0, 50);
 
     }
     //In option Scene

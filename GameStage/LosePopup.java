@@ -68,19 +68,3 @@ public class LosePopup extends StageController{
         System.out.println(endScore.getText());
     }
 }
-
-// class newdsadsad implements ActionListener {
-
-//     @Override
-//     public void actionPerformed(ActionEvent e) {
-
-//         JButton src = (JButton) e.getSource();
-
-//         if(src == LosePopup.newGame){
-//             LosePopup.loseFrame.setVisible(false);
-//             StageOne.stageOne.dispose();
-//             new Lobby();
-//         }
-//     }
-    
-// }
