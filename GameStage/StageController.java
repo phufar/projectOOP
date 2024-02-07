@@ -36,7 +36,7 @@ public class StageController extends JFrame implements ActionListener {
             LosePopup.losePanel = null;
             LosePopup.loseFrame.dispose();
             StageOne.stageOne.dispose();
-            new StageOne();
+            new Lobby();
         }
         else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==true){
             COUNT();
@@ -78,6 +78,7 @@ public class StageController extends JFrame implements ActionListener {
 
     private void lose(){
         maxScoreCheck();
+        ScoreLEVEL = 0;
         new LosePopup();
         ScoreLEVEL = 1;
         score = Integer.toString(ScoreLEVEL);

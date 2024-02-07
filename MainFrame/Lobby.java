@@ -82,13 +82,13 @@ public class Lobby extends JFrame {
 
         // BottomPanel
         JPanel BottomPanel = new JPanel();
-        BottomPanel.setBackground(new Color(235, 216, 216));
+        BottomPanel.setBackground(new Color(48, 47, 46));
         BottomPanel.setBounds(0, 560, 1280, 160);
         layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
 
         // MainPanel
         JPanel MainPanel = new JPanel();
-        MainPanel.setBackground(new Color(255, 224, 224));
+        MainPanel.setBackground(new Color(48, 47, 46));
         MainPanel.setSize(1280, 720);
         MainPanel.setBounds(0, 0, 1280, 720);
         layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);

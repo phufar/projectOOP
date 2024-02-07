@@ -68,7 +68,8 @@ public class StageOne extends StageController {
     }
 
     public StageOne() {
-        // set up variable
+        //set up variable
+        ScoreLEVEL =0;
         rand = new Random();
         buttons = null;
         randomRed = rand.nextInt(225);
@@ -79,12 +80,13 @@ public class StageOne extends StageController {
         buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
         // init Stage
         stageEvent = new StageController();
+        mouseEvent = new MouseController();
         bergerMenu = new JButton();
         layeredPane = new JLayeredPane();
         scoreLabel = new JLabel();
         stageOne = new JFrame();
         // static JPanel gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE));
-        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE, 5, 5));
+        gridPanel = new JPanel(new GridLayout(GRID_SIZE, GRID_SIZE, 10, 10));
         // setFrame
         stageOne.setSize(1280, 720);
         stageOne.setTitle("Stage" + ScoreLEVEL);
@@ -113,7 +115,8 @@ public class StageOne extends StageController {
             for (int j = 0; j < GRID_SIZE; j++) {
                 buttons[i][j] = new FakeButton();
                 buttons[i][j].setPreferredSize(new Dimension(20, 20));
-                buttons[i][j].setBorder(new RoundedBorder(10));
+                buttons[i][j].setBorder(new RoundedBorder(20));
+                buttons[i][j].setContentAreaFilled(false);
                 if (i == TargetX && j == TargetY) {
                     buttons[i][j].setTarget(true);
                     buttons[i][j].setBackground(new Color(randomRed + SetRandomRange(), randomGreen + SetRandomRange(),
