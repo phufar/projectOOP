@@ -1,16 +1,21 @@
 package MainFrame;
 
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JButton;
 // import javax.swing.JOptionPane;
 
+import GameStage.StageController;
 import GameStage.StageOne;
 
 public class lobbyEvent implements ActionListener {
-    
+    public static double TimeCount = 1000;
+    public static double counter = TimeCount;
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton srcButton = (JButton) e.getSource(); 
@@ -32,7 +37,7 @@ public class lobbyEvent implements ActionListener {
     private void START() {
         Lobby.frameLobby.dispose();
         new StageOne();
-        // new LosePopup();
+        SliderTransition();
     }
 
     private void OPTION() {
@@ -45,11 +50,30 @@ public class lobbyEvent implements ActionListener {
     }
 
 
+    public static void SliderTransition(){
+        
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            
+            public void run(){
+                // System.out.println((int)counter);
+                StageOne.pgBAR.setValue((int)counter);
+                counter-=2;
+                if(counter < 0){
+                    System.out.println("Stop");
+                    timer.cancel();
+                    StageController.lose();
+                }
+            }
+        }, 0, 50);
+
+    }
     //In option Scene
     private void BACK(){
         Option.frameOption.dispose();
         new Lobby();
     }
+
 
 }
 

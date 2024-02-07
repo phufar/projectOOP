@@ -25,7 +25,7 @@ public class StageOne extends StageController {
     static JLabel scoreLabel;
 
     //BAR TIME
-    static JProgressBar pgBAR;
+    public static JProgressBar pgBAR;
 
     // BTN CHECK GAME OVER
     static JButton gameover;
@@ -72,6 +72,7 @@ public class StageOne extends StageController {
     }
 
     public StageOne() {
+
         //set up variable XD
         ScoreLEVEL =0;
         rand = new Random();
@@ -154,13 +155,13 @@ public class StageOne extends StageController {
         //progressBar
         pgBAR = new JProgressBar(JProgressBar.HORIZONTAL, 0, 1000);
         pgBAR.setValue(1000);
-        pgBAR.setBounds(100,300,500,50);
+        pgBAR.setBounds(390,50,500,15);
         layeredPane.add(pgBAR,JLayeredPane.DEFAULT_LAYER);
 
         // TopPanel
         JPanel BottomPanel = new JPanel();
         BottomPanel.setBackground(new Color(44, 44, 44));
-        BottomPanel.setBounds(400, 30, 1280, 120);
+        BottomPanel.setBounds(0, 0, 1280, 120);
         layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
 
         // Add the layered pane to the frame

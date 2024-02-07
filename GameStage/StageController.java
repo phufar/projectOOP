@@ -3,11 +3,13 @@ package GameStage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import CircleGen.*;
 import MainFrame.Lobby;
+import MainFrame.lobbyEvent;
 
 
 public class StageController extends JFrame implements ActionListener {
@@ -41,8 +43,10 @@ public class StageController extends JFrame implements ActionListener {
         else if((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==true){
             COUNT();
             StageOne.resetCircle();
+            lobbyEvent.counter = 1000;
         }
         else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)|| StageOne.Time == 0){
+            lobbyEvent.counter = 0;
             lose();
         }
     }
@@ -76,7 +80,7 @@ public class StageController extends JFrame implements ActionListener {
         new Lobby();
     }
 
-    private void lose(){
+    public static void lose(){
         maxScoreCheck();
         ScoreLEVEL = 0;
         new LosePopup();
@@ -84,11 +88,13 @@ public class StageController extends JFrame implements ActionListener {
         score = Integer.toString(ScoreLEVEL);
     }
 
-    private void maxScoreCheck() {
+    private static void maxScoreCheck() {
         if (Integer.parseInt(scoreMax) < ScoreLEVEL) {
             scoreMax = Integer.toString(ScoreLEVEL);
         }
         System.out.println(scoreMax);
     }
+    
+    
    
 }
