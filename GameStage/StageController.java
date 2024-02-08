@@ -57,6 +57,7 @@ public class StageController extends JFrame implements ActionListener {
         else if(((srcButton instanceof FakeButton) && ((FakeButton)srcButton).isTarget()==false)){
             playSound("img/incorrect.wav");
             lobbyEvent.timer.cancel();
+            StageOne.stageOne.dispose();
             lose();
         }
     }
