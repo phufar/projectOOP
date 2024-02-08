@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Set;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -54,9 +56,9 @@ public class StageOne extends StageController {
         rand = new Random();
         buttons = null;
         set = rand.nextInt(2);
-        randomRed = rand.nextInt(225);
-        randomGreen = rand.nextInt(225);
-        randomBlue = rand.nextInt(225);
+        randomRed = rand.nextInt(255-SetRandomRange());
+        randomGreen = rand.nextInt(255-SetRandomRange());
+        randomBlue = rand.nextInt(255-SetRandomRange());
         TargetX = makeTargetX();
         TargetY = makeTargetY();
         buttons = new FakeButton[GRID_SIZE][GRID_SIZE];
@@ -195,9 +197,9 @@ public class StageOne extends StageController {
     public static void resetCircle() {
         buttons[TargetX][TargetY].setTarget(false);
         set = rand.nextInt(2);
-        randomRed = rand.nextInt(225);
-        randomGreen = rand.nextInt(225);
-        randomBlue = rand.nextInt(225);
+        randomRed = rand.nextInt(255-SetRandomRange());
+        randomGreen = rand.nextInt(255-SetRandomRange());
+        randomBlue = rand.nextInt(255-SetRandomRange());
         TargetX = makeTargetX();
         TargetY = makeTargetY();
         for (int i = 0; i < buttons.length; i++) {
