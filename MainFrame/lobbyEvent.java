@@ -65,7 +65,7 @@ public class lobbyEvent  implements ActionListener {
         timer.scheduleAtFixedRate(new TimerTask() {
             
             public void run(){
-                // System.out.println((int)counter);
+                System.out.println((int)counter);
                 StageOne.pgBAR.setValue((int)counter);
                 counter-=1;
                 if(counter < 0){

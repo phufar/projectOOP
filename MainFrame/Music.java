@@ -7,7 +7,10 @@ import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.JCheckBox;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class Music {
     static Clip clip;
@@ -48,4 +51,18 @@ class MusicControl implements ActionListener{
         }
 	}
 
+}
+
+class VolumeControl implements ChangeListener{
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        int volume = (Option.sliderBar).getValue();
+        FloatControl gainControl = (FloatControl) (Music.clip).getControl(FloatControl.Type.MASTER_GAIN);
+        float dB = (float) (Math.log(volume / 100.0) / Math.log(10.0) * 20.0);
+        gainControl.setValue(dB);
+    }
+
+    
+    
 }

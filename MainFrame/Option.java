@@ -1,8 +1,9 @@
 package MainFrame;
 
 import java.awt.BorderLayout;
-import java.awt.Checkbox;
+
 import java.awt.Color;
+
 import java.awt.Font;
 // import java.awt.event.ActionListener;
 
@@ -12,18 +13,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
 
-public class Option{
+public class Option {
 
     public static JFrame frameOption;
     static JCheckBox checkBoxMusic;
+    public static JSlider sliderBar;
+    static JLabel bgm;
 
-    static Checkbox cBox = new Checkbox();
-    static MusicControl musicControl;
-    
-
-    public Option(){
-        MusicControl musicControl = new MusicControl();
+    public Option() {
         // Frame
         frameOption = new JFrame();
         frameOption.setTitle("BLIND");
@@ -48,26 +47,38 @@ public class Option{
         // set Button Color
         BACK.setBackground(new Color(147, 147, 147));
 
-        //set Button Text
+        // set Button Text
         BACK.setFont(new Font("Inter", Font.BOLD, 32));
-        
-        //set button Font-Color
+
+        // set button Font-Color
         BACK.setForeground(Color.WHITE);
 
-        //BUTTON EVENT
+        // BUTTON EVENT
         lobbyEvent btnEvent = new lobbyEvent();
         BACK.addActionListener(btnEvent);
 
         // Add a button to Frame
         layeredPane.add(BACK, JLayeredPane.DEFAULT_LAYER);
 
-        //Add CheckBox
-        checkBoxMusic = new JCheckBox("Background Music");
-        checkBoxMusic.setBounds(500, 500, 100, 100);
-        checkBoxMusic.setContentAreaFilled(false);
-        checkBoxMusic.setBorder(null);
-        checkBoxMusic.addActionListener(musicControl);
-        layeredPane.add(checkBoxMusic,JLayeredPane.DEFAULT_LAYER);
+        //TEXT SLIDER
+        bgm = new JLabel("Background Music");
+        bgm.setFont(new Font("Inter", Font.BOLD, 30));
+        bgm.setForeground(Color.WHITE);
+        bgm.setBounds(670,220,300,200);
+        layeredPane.add(bgm,JLayeredPane.DEFAULT_LAYER);
+
+        // Slider
+        VolumeControl Vctrl = new VolumeControl();
+        sliderBar = new JSlider(JSlider.HORIZONTAL, 0, 100, 100);
+        sliderBar.setBounds(550, 370, 500, 100);
+        sliderBar.addChangeListener(Vctrl);
+        sliderBar.setMajorTickSpacing(10);
+        sliderBar.setMinimum(0);
+        sliderBar.setPaintLabels(true);
+        sliderBar.setPaintTicks(true);
+        sliderBar.setForeground(Color.white);
+        sliderBar.setBackground(new Color(48, 47, 46));
+        layeredPane.add(sliderBar, JLayeredPane.DEFAULT_LAYER);
 
         // Title BLIND
         JLabel nameTitle = new JLabel("OPTION");
@@ -84,13 +95,13 @@ public class Option{
 
         // BottomPanel
         JPanel BottomPanel = new JPanel();
-        BottomPanel.setBackground(new Color(235, 216, 216));
+        BottomPanel.setBackground(new Color(48, 47, 46));
         BottomPanel.setBounds(0, 560, 1280, 160);
         layeredPane.add(BottomPanel, JLayeredPane.DEFAULT_LAYER);
 
         // MainPanel
         JPanel MainPanel = new JPanel();
-        MainPanel.setBackground(new Color(255, 224, 224));
+        MainPanel.setBackground(new Color(48, 47, 46));
         MainPanel.setSize(1280, 720);
         MainPanel.setBounds(0, 0, 1280, 720);
         layeredPane.add(MainPanel, JLayeredPane.DEFAULT_LAYER);
