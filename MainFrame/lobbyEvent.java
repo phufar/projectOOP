@@ -71,6 +71,7 @@ public class lobbyEvent  implements ActionListener {
                 if(counter < 0){
                     System.out.println("Stop");
                     timer.cancel();
+                    StageController.playSound("img/incorrect.wav");
                     StageOne.stageOne.setEnabled(false);
                     StageController.lose();
                 }
