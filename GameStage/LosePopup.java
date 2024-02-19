@@ -68,6 +68,7 @@ public class LosePopup extends StageController{
 
         loseFrame.getContentPane().add(layer);
         loseFrame.setVisible(true);
+        loseFrame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         System.out.println(endScore.getText());
     }
 }
