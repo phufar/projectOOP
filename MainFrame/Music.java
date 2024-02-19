@@ -14,6 +14,7 @@ import javax.swing.event.ChangeListener;
 
 public class Music {
     static Clip clip;
+    static int volume = 100; 
 
     public Music() {
         playMusic("img/Bluelemonade.wav");
@@ -54,12 +55,11 @@ class MusicControl implements ActionListener{
 }
 
 class VolumeControl implements ChangeListener{
-
     @Override
     public void stateChanged(ChangeEvent e) {
-        int volume = (Option.sliderBar).getValue();
+        Music.volume = (Option.sliderBar).getValue();
         FloatControl gainControl = (FloatControl) (Music.clip).getControl(FloatControl.Type.MASTER_GAIN);
-        float dB = (float) (Math.log(volume / 100.0) / Math.log(10.0) * 20.0);
+        float dB = (float) (Math.log(Music.volume / 100.0) / Math.log(10.0) * 20.0);
         gainControl.setValue(dB);
     }
 

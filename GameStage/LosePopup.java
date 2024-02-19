@@ -28,7 +28,6 @@ public class LosePopup extends StageController{
         loseFrame.setTitle("GAMEOVER");
         loseFrame.setLocationRelativeTo(null);
         loseFrame.setUndecorated(true);
-        loseFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         gameover = new JLabel("GAME OVER");
         gameover.setBounds(155, 50, 200, 80);

@@ -69,7 +69,7 @@ public class Option {
 
         // Slider
         VolumeControl Vctrl = new VolumeControl();
-        sliderBar = new JSlider(JSlider.HORIZONTAL, 0, 100, 100);
+        sliderBar = new JSlider(JSlider.HORIZONTAL, 0, 100, Music.volume);
         sliderBar.setBounds(550, 370, 500, 100);
         sliderBar.addChangeListener(Vctrl);
         sliderBar.setMajorTickSpacing(10);
