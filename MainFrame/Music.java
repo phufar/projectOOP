@@ -34,22 +34,6 @@ public class Music {
         }
     }
 }
-// class MusicControl implements ActionListener{
-
-// 	@Override
-// 	public void actionPerformed(ActionEvent e) {
-//         JCheckBox chBox = (JCheckBox) e.getSource();
-        
-//         if(chBox == Option.checkBoxMusic ){
-//             if (Music.clip != null && Music.clip.isRunning()) {
-//                 Music.clip.stop();
-//             }
-//             else{
-//                 Music.clip.start();
-//             }
-//         }
-// 	}
-// }
 
 class MusicControl implements ChangeListener{
     @Override
