@@ -8,7 +8,6 @@ import java.awt.Font;
 // import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -18,8 +17,8 @@ import javax.swing.JSlider;
 public class Option {
 
     public static JFrame frameOption;
-    static JCheckBox checkBoxMusic;
-    public static JSlider sliderBar;
+    public static JSlider sliderBarMusic;
+    public static JSlider sliderBarSound;
     static JLabel bgm;
 
     public Option() {
@@ -60,25 +59,45 @@ public class Option {
         // Add a button to Frame
         layeredPane.add(BACK, JLayeredPane.DEFAULT_LAYER);
 
-        //TEXT SLIDER
+        //TEXT Music SLIDER
         bgm = new JLabel("Background Music");
         bgm.setFont(new Font("Inter", Font.BOLD, 30));
         bgm.setForeground(Color.WHITE);
-        bgm.setBounds(670,220,300,200);
+        bgm.setBounds(670,320,300,200);
         layeredPane.add(bgm,JLayeredPane.DEFAULT_LAYER);
 
-        // Slider
-        VolumeControl Vctrl = new VolumeControl();
-        sliderBar = new JSlider(JSlider.HORIZONTAL, 0, 100, Music.volume);
-        sliderBar.setBounds(550, 370, 500, 100);
-        sliderBar.addChangeListener(Vctrl);
-        sliderBar.setMajorTickSpacing(10);
-        sliderBar.setMinimum(0);
-        sliderBar.setPaintLabels(true);
-        sliderBar.setPaintTicks(true);
-        sliderBar.setForeground(Color.white);
-        sliderBar.setBackground(new Color(48, 47, 46));
-        layeredPane.add(sliderBar, JLayeredPane.DEFAULT_LAYER);
+        // Music Slider
+        MusicControl Vctrl = new MusicControl();
+        sliderBarMusic = new JSlider(JSlider.HORIZONTAL, 0, 100, Music.MusicVolume);
+        sliderBarMusic.setBounds(550, 470, 500, 100);
+        sliderBarMusic.addChangeListener(Vctrl);
+        sliderBarMusic.setMajorTickSpacing(10);
+        sliderBarMusic.setMinimum(0);
+        sliderBarMusic.setPaintLabels(true);
+        sliderBarMusic.setPaintTicks(true);
+        sliderBarMusic.setForeground(Color.white);
+        sliderBarMusic.setBackground(new Color(48, 47, 46));
+        layeredPane.add(sliderBarMusic, JLayeredPane.DEFAULT_LAYER);
+        
+        //TEXT Sound SLIDER
+        bgm = new JLabel("Sound Effect");
+        bgm.setFont(new Font("Inter", Font.BOLD, 30));
+        bgm.setForeground(Color.WHITE);
+        bgm.setBounds(715,50,300,200);
+        layeredPane.add(bgm,JLayeredPane.DEFAULT_LAYER);
+
+        // Sound Slider
+        SoundControl Sctrl = new SoundControl();
+        sliderBarSound = new JSlider(JSlider.HORIZONTAL, 0, 100, Music.SoundVolume);
+        sliderBarSound.setBounds(550, 200, 500, 100);
+        sliderBarSound.addChangeListener(Sctrl);
+        sliderBarSound.setMajorTickSpacing(10);
+        sliderBarSound.setMinimum(0);
+        sliderBarSound.setPaintLabels(true);
+        sliderBarSound.setPaintTicks(true);
+        sliderBarSound.setForeground(Color.white);
+        sliderBarSound.setBackground(new Color(48, 47, 46));
+        layeredPane.add(sliderBarSound, JLayeredPane.DEFAULT_LAYER);
 
         // Title BLIND
         JLabel nameTitle = new JLabel("OPTION");

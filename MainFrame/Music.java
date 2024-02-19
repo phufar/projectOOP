@@ -14,7 +14,8 @@ import javax.swing.event.ChangeListener;
 
 public class Music {
     static Clip clip;
-    static int volume = 100; 
+    static int MusicVolume = 100; 
+    public static int SoundVolume = 100; 
 
     public Music() {
         playMusic("img/Bluelemonade.wav");
@@ -36,33 +37,36 @@ public class Music {
         }
     }
 }
-class MusicControl implements ActionListener{
+// class MusicControl implements ActionListener{
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-        JCheckBox chBox = (JCheckBox) e.getSource();
+// 	@Override
+// 	public void actionPerformed(ActionEvent e) {
+//         JCheckBox chBox = (JCheckBox) e.getSource();
         
-        if(chBox == Option.checkBoxMusic ){
-            if (Music.clip != null && Music.clip.isRunning()) {
-                Music.clip.stop();
-            }
-            else{
-                Music.clip.start();
-            }
-        }
-	}
+//         if(chBox == Option.checkBoxMusic ){
+//             if (Music.clip != null && Music.clip.isRunning()) {
+//                 Music.clip.stop();
+//             }
+//             else{
+//                 Music.clip.start();
+//             }
+//         }
+// 	}
+// }
 
-}
-
-class VolumeControl implements ChangeListener{
+class MusicControl implements ChangeListener{
     @Override
     public void stateChanged(ChangeEvent e) {
-        Music.volume = (Option.sliderBar).getValue();
+        Music.MusicVolume = (Option.sliderBarMusic).getValue();
         FloatControl gainControl = (FloatControl) (Music.clip).getControl(FloatControl.Type.MASTER_GAIN);
-        float dB = (float) (Math.log(Music.volume / 100.0) / Math.log(10.0) * 20.0);
+        float dB = (float) (Math.log(Music.MusicVolume / 100.0) / Math.log(10.0) * 20.0);
         gainControl.setValue(dB);
     }
+}
 
-    
-    
+class SoundControl implements ChangeListener{
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        Music.SoundVolume = (Option.sliderBarSound).getValue();
+    }
 }
